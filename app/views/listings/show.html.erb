@@ -1,6 +1,7 @@
 <div class="container">
   <div class="header">
     <h1><%= @listing.title %></h1>
+    <h2>Rating ****</h2>
   </div>
   <div class="image">
     <%= image_tag "https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80", alt: "alttext" %>
@@ -10,4 +11,14 @@
     <p><%= @listing.price %></p>
     <p><%= @listing.address %></p>
   </div>
+  <div class="description">
+    <p>
+      Pellentesque habitant morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+      ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
+      quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+      eleifend leo.
+    </p>
+  </div>
+
 </div>
