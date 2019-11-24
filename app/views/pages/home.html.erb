@@ -1,1 +1,29 @@
-<h1>Welcome to Siesta Fiesta!</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://ak7.picdn.net/shutterstock/videos/14191517/thumb/1.jpg);">
+  <div class="container">
+    <h1 class="d-flex justify-content-around mb-5">Take a nap at</h1>
+    <h3><%= render "form", listing: @new_listing %></h3>
+  </div>
+</div>
+<div class="container">
+  <h3 class="mt-2 mb-3 border-top border-bottom">Featured naps nearby: </h3>
+  <div class="row">
+    <% @listings.each do |listing| %>
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="Image">
+        <div class="card-body">
+          <h5 class="card-title"><%= listing.title %></h5>
+          <p class="card-text"><%= listing.category %></p>
+          <p class="card-text"><%= listing.address %></p>
+          <p class="card-text"><%= listing.price %></p>
+          <p class="card-text"><%= listing.user.email %></p>
+          <%= link_to "Go to Listing", listing_path(listing) %>
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
