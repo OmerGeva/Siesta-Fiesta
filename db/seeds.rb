@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create(email: 'bob@bob.com', password: '123456')
+user = User.create(email: 'sponge@bob.com', password: '123456', first_name: 'Sponge', last_name: 'Bob')
 
 Listing.create(title: 'Couchtown', category: 'couch', price: '30', address: Faker::Address.street_address, user: user)
 Listing.create(title: 'Yogaslavia', category: 'yoga mat', price: '10', address: Faker::Address.street_address, user: user)
