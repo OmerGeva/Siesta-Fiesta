@@ -1,0 +1,63 @@
+<div class="main-container">
+<h1>Naps available</h1>
+  <div class="searchbar">
+    <form>
+      <div class="form-row">
+        <div class="col-4">
+          <input type="text" class="form-control" placeholder="Address">
+        </div>
+        <div class="col-3">
+          <input type="date" class="form-control" placeholder="From">
+        </div>
+        <div class="col-3">
+          <input type="date" class="form-control" placeholder="Till">
+        </div>
+        <div class="col-2">
+          <input type="number" class="form-control" placeholder="Guests">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="filterbar">
+    <div class="btn-group">
+  <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Price
+  </button>
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Category
+  </button>
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Location
+  </button>
+  <button class="btn btn-secondary btn-sm">Other</button>
+
+
+</div>
+  </div>
+
+  <div class="row">
+    <div class="col-8 results-wrapper">
+      <div class='results'>
+        <% @listings.each do |listing| %>
+        <%= link_to listing_path(listing) do %>
+        <div class="card-product mb-4">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" />
+          <div class="card-product-infos p-2">
+            <h2><%= listing.title %></h2>
+            <p><%= listing.category %></p>
+            <p><%= listing.address %></p>
+            <p><em>Extra option</em></p>
+            <p><strong><%= listing.price %>$</strong></p>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4 map-wrapper">
+      <div class="map">
+        <img src="https://www.evenisgroup.com/wp-content/uploads/2019/05/BUREAU-VITKIN-1170x738.png" alt="map">
+      </div>
+    </div>
+  </div>
+</div>
