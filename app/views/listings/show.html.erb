@@ -1,24 +1,45 @@
+<div class="d-flex">
+
+<div>
 <div class="container">
   <div class="header">
-    <h1><%= @listing.title %></h1>
-    <h2>Rating ****</h2>
   </div>
   <div class="image">
-    <%= image_tag "https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80", alt: "alttext" %>
+    <%= image_tag "http://kortx.co/wp-content/uploads/2019/05/couch-cool-couches-for-sale-and-sofas-s-cover-ideas-pillows-funky-cheap-unique-leather-grey-melbourne-diva-sofa-a-sa.jpg", alt: "alttext" %>
   </div>
-  <div class="content">
-    <p><%= @listing.category %></p>
-    <p><%= @listing.price %></p>
-    <p><%= @listing.address %></p>
+</div>
+<div class="d-flex">
+  <h1><%= @listing.title %></h1>
+</div>
+<div class="content">
+  <div class="d-flex align-items-center">
+    <h2 class="mb-0">Rating:</h2>
+    <% 5.times do %>
+    <p class="mb-0"><i class="fas fa-star"></i></p>
+    <% end %>
   </div>
-  <div class="description">
-    <p>
-      Pellentesque habitant morbi tristique senectus et netus et malesuada
-      fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-      ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
-      quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-      eleifend leo.
-    </p>
-  </div>
+  <p><%= @listing.category %></p>
+  <p><%= @listing.price %></p>
+  <p><%= @listing.address %></p>
+</div>
+<div class="description">
+  <p>
+    Pellentesque habitant morbi tristique senectus et netus et malesuada
+    fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+    ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
+    quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+    eleifend leo.
+  </p>
+</div>
+
+</div>
+<div class="container mt-5">
+  <%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+  <%= f.input :duration, placeholder: "1.5" %>
+  <%= f.submit "Nap Here!", class: "btn btn-primary btn-block" %>
+<% end %>
+</div>
 
 </div>
