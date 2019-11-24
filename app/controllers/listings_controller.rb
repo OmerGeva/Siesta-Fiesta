@@ -4,4 +4,14 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
   end
+
+  def index
+    @query = params[:search][:category]
+
+    if @query && @query != ""
+      @listings = Listing.where(category: @query)
+    else
+      @listings = Listing.all
+    end
+  end
 end
