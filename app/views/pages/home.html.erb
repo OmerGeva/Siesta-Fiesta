@@ -8,16 +8,19 @@
   <h3 class="mt-2 mb-3 border-top border-bottom">Featured naps nearby: </h3>
   <div class="row">
     <% @listings.each do |listing| %>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="Image">
+    <div class="col-3">
+      <div class="card m-2 shadow-sm" style="width: 16rem;">
+        <img src="https://pixfeeds.com/images/sleep/pillows/1200-488664889-boy-sleeping-on-couch.jpg" class="card-img-top" alt="Image">
         <div class="card-body">
-          <h5 class="card-title"><%= listing.title %></h5>
-          <p class="card-text"><%= listing.category %></p>
-          <p class="card-text"><%= listing.address %></p>
-          <p class="card-text"><%= listing.price %></p>
-          <p class="card-text"><%= listing.user.email %></p>
-          <%= link_to "Go to Listing", listing_path(listing) %>
+          <div class="d-flex justify-content-between align-items-end">
+            <div>
+              <h3 class="card-title border-bottom"><%= listing.title %></h3>
+              <p class="card-text"><%= listing.category.capitalize %></p>
+              <p class="card-text"><%= listing.address %></p>
+            </div>
+            <p class="card-text">$<%= listing.price %></p>
+          </div>
+          <%= link_to "Go to Listing", listing_path(listing), class: "btn btn-primary btn-block mt-2" %>
         </div>
       </div>
 
