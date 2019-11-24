@@ -39,6 +39,7 @@
     <div class="col-8 results-wrapper">
       <div class='results'>
         <% @listings.each do |listing| %>
+        <%= link_to listing_path(listing) do %>
         <div class="card-product mb-4">
           <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" />
           <div class="card-product-infos p-2">
@@ -49,6 +50,7 @@
             <p><strong><%= listing.price %>$</strong></p>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
     </div>

@@ -8,6 +8,13 @@
 .results {
   overflow-y: scroll;
   height: 72vh;
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    &:hover {
+      h2 {color: $hover;}
+    }
+  }
 }
 
 .map-wrapper {
