@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create(email: 'sponge@bob.com', password: '123456', first_name: 'Sponge', last_name: 'Bob', photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574676603/SpongeBob_stock_art_wxxisz.png')
 
-url = "https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574677911/office-couch_obsotk.jpg"
+url = "https://images.unsplash.com/photo-1484101403633-562f891dc89a"
 listing = Listing.create(title: 'Couchtown', category: 'couch', price: '30', address: Faker::Address.street_address, user: user, description: Faker::Lorem.paragraph_by_chars)
 listing.remote_photo_url = url
 listing.save
@@ -56,3 +56,8 @@ url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574688310/hallway-cou
 listing = Listing.create(title: 'Apartment hallway', category: 'couch', price: '25', address: Faker::Address.street_address, user: user, description: Faker::Lorem.paragraph_by_chars)
 listing.remote_photo_url = url
 listing.save
+
+review = Review.create(title: Faker::Lorem.sentence(word_count: 3), content: Faker::Lorem.paragraph_by_chars, rating: rand(1..5), listing_id: 7, user: user)
+review = Review.create(title: Faker::Lorem.sentence(word_count: 3), content: Faker::Lorem.paragraph_by_chars, rating: rand(1..5), listing_id: 7, user: user)
+review = Review.create(title: Faker::Lorem.sentence(word_count: 3), content: Faker::Lorem.paragraph_by_chars, rating: rand(1..5), listing_id: 7, user: user)
+review = Review.create(title: Faker::Lorem.sentence(word_count: 3), content: Faker::Lorem.paragraph_by_chars, rating: rand(1..5), listing_id: 7, user: user)

@@ -46,11 +46,24 @@
           <div class="card-product-infos p-2">
             <div class='d-flex justify-content-between'>
             <h2><%= listing.title %></h2>
-            <div class='stars mb-1'>
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
+
+            <!-- RATING -->
+            <% if listing.reviews.empty? %>
+              <div class='stars'>
+                <% 5.times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              </div>
+            <% else %>
+              <div class='stars'>
+                <% ratings = listing.reviews.map(&:rating) %>
+                <% @avg_rating = (ratings.sum / ratings.length) %></p>
+                <% @avg_rating.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+              </div>
+            <% end %>
+
           </div>
             <p><%= listing.category %></p>
             <p><%= listing.address %></p>
