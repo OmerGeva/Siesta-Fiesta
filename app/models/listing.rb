@@ -3,4 +3,5 @@ class Listing < ApplicationRecord
 
   validates :title, uniqueness: true
   validates :address, uniqueness: true
+  mount_uploader :photo, PhotoUploader
 end
