@@ -27,11 +27,18 @@
   padding: 16px;
 }
 
-.listing-card {
-  background: white;
-  box-shadow: 2px 2px 15px rgba(0,0,0,0.1);
-}
-
 .content {
   padding: 24px 16px;
+}
+
+.listing-card {
+  margin: 0;
+}
+
+.description {
+  padding: 12px;
+}
+
+.img-layout {
+  width: 100%;
 }

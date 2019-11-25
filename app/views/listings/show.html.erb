@@ -1,61 +1,48 @@
-<div class="d-flex">
+<div class="show-container">
 
-<div>
-<div class="container">
+<div class="row">
 
-  </div>
-  <p><%= @listing.category %></p>
-  <p><%= @listing.price %></p>
-  <p><%= @listing.address %></p>
-</div>
-<div class="description">
-  <p>
-    Pellentesque habitant morbi tristique senectus et netus et malesuada
-    fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-    ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
-    quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-    eleifend leo.
-  </p>
-</div>
-
-</div>
-<div class="container mt-5">
-  <%= simple_form_for [@listing, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
-  <%= f.input :duration, placeholder: "1.5" %>
-  <%= f.submit "Nap Here!", class: "btn btn-primary btn-block" %>
-<% end %>
-</div>
-
-  <div class="row listing-card">
-
-    <div class="col-6 img-layout">
-      <div class="row mb-2">
-        <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img">
-      </div>
-      <div class="row d-flex flex-nowrap">
-        <div>
-          <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+  <div class="col-8 listing-wrapper">
+    <div class="row listing-card">
+      <div class="col-6 img-layout">
+        <div class="row mb-2">
+          <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img">
         </div>
-        <div>
-          <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+        <div class="row d-flex flex-nowrap">
+          <div>
+            <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+          </div>
+          <div>
+            <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+          </div>
+        </div>
+      </div>
+      <div class='col-6 content'>
+        <div class="details">
+          <div class='stars'>
+            <% 5.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p class='category'><%= @listing.category %></p>
+          <p><%= @listing.address %></p>
+        </div>
+        <div class="description">
+          <p>
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
+            quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+            eleifend leo.
+          </p>
         </div>
       </div>
     </div>
 
-    <div class='col-6 content'>
-      <div class="details">
-        <div class='stars'>
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-        </div>
-        <p class='category'><%= @listing.category %></p>
-        <h3><%= @listing.price %>$</h3>
-        <p><%= @listing.address %></p>
-      </div>
-      <div class="description">
+    <div class="reviews">
+      <% 10.times do %>
+      <div class='review'>
+        <strong>Review</strong>
         <p>
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
@@ -64,7 +51,24 @@
           eleifend leo.
         </p>
       </div>
-
+      <% end %>
     </div>
+
+  </div>
+
+
+  <div class="col-4 booking-form-wrapper">
+
+      <div class="booking-form">
+        <h3><%= @listing.price %>$ <span>per hour</span></h3>
+        <%= simple_form_for [@listing, @booking] do |f| %>
+        <%= f.input :date, value: Date.today %>
+        <%= f.input :time, value: Time.now %>
+        <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0', step: '0.5' }, placeholder: "0.5" %>
+        <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+        <%= f.submit "Nap Here!", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+
   </div>
 </div>
