@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_105544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "message"
+    t.time "time"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
