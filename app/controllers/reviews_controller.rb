@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if @review.user = current_user
+    if @review.user == current_user
       authorize @review
       @review.destroy
       redirect_to reviews_path
