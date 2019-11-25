@@ -1,7 +1,32 @@
+<div class="d-flex">
+
+<div>
 <div class="container">
-  <div class="text-center">
-    <h1 class='my-4'><%= @listing.title %></h1>
+
   </div>
+  <p><%= @listing.category %></p>
+  <p><%= @listing.price %></p>
+  <p><%= @listing.address %></p>
+</div>
+<div class="description">
+  <p>
+    Pellentesque habitant morbi tristique senectus et netus et malesuada
+    fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+    ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
+    quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+    eleifend leo.
+  </p>
+</div>
+
+</div>
+<div class="container mt-5">
+  <%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+  <%= f.input :duration, placeholder: "1.5" %>
+  <%= f.submit "Nap Here!", class: "btn btn-primary btn-block" %>
+<% end %>
+</div>
 
   <div class="row listing-card">
 
@@ -22,7 +47,9 @@
     <div class='col-6 content'>
       <div class="details">
         <div class='stars'>
-          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              <% 5.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
         </div>
         <p class='category'><%= @listing.category %></p>
         <h3><%= @listing.price %>$</h3>
