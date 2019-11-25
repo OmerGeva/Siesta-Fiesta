@@ -41,7 +41,7 @@
         <% @listings.each do |listing| %>
         <%= link_to listing_path(listing) do %>
         <div class="card-product mb-4">
-            <%= cl_image_tag listing.photo, crop: fill, alt: listing.title, class "photo-wrapper" %>
+            <%= cl_image_tag listing.photo, crop: :fill, alt: listing.title %>
         </div>
           <div class="card-product-infos p-2">
             <h2><%= listing.title %></h2>
