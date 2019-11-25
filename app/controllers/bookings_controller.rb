@@ -4,11 +4,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    current_date = Date.new(params[:booking]["date(1i)"].to_i, params[:booking]["date(2i)"].to_i, params[:booking]["date(3i)"].to_i)
+    # current_date = Date.new(params[:booking]["date(1i)"].to_i, params[:booking]["date(2i)"].to_i, params[:booking]["date(3i)"].to_i)
     @listing = Listing.find(params[:listing_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.date = current_date
     @booking.listing = @listing
     authorize @booking
     @booking.save
@@ -21,6 +20,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :message, :duration)
+    params.require(:booking).permit(:date, :message, :duration, :date)
   end
 end
