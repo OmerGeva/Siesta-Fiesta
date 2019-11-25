@@ -1,15 +1,21 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_listing
   before_action :find_review, only: [:show, :edit, :update, :delete]
 
-  def index
-    @reviews = Review.all
+  # def index
+  #   @reviews = Review.all
+  # end
+
+  def new
+    @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
+    @review.listing = @listing
     if @review.save
-      redirect_to review_path(@review)
+      redirect_to listing_path(@listing)
     else
       render :new
     end
@@ -29,5 +35,13 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find(params[:id])
+  end
+
+  def set_listing
+    @listing = Listing.find(params[:listing_id])
+  end
+
+  def review_params
+    params.require(:review).permit(:title, :content, :rating)
   end
 end
