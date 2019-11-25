@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = current_date
     @booking.listing = @listing
+    authorize @booking
     @booking.save
     redirect_to account_bookings_path, notice: 'Booking was successfully created!'
     # if @booking.save
