@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_listing, only: [:show, :destroy]
   def index
-    @query = params[:search][:category]
+    @query = params[:category]
 
     if @query && @query != ""
       @listings = policy_scope(Listing).where(category: @query)
