@@ -1,11 +1,18 @@
+.card-img-top {
+  height: 240px;
+  object-fit: cover;
+}
+
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  img {width: 150px;
+  img {width: 200px;
+       height: 100%;
        object-fit: cover;}
 }
 
@@ -25,6 +32,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 100%;
 }
 
 .content {

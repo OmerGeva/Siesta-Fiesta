@@ -16,7 +16,7 @@
             <!-- <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
           </div>
           <div>
-            <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
+            <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pl-1' %>
             <!-- <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
 
           </div>
@@ -24,10 +24,11 @@
 
       </div>
       <div class='col-6 content'>
+        <h2><%= @listing.title %></h2>
         <div class="details">
           <div class='stars'>
             <% 5.times do %>
-            <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             <% end %>
           </div>
           <p class='category'><%= @listing.category %></p>
@@ -36,11 +37,7 @@
         </div>
         <div class="description">
           <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
-            quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-            eleifend leo.
+            <%= @listing.description %>
           </p>
         </div>
       </div>
