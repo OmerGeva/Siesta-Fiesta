@@ -1,6 +1,8 @@
 .show-container {
-  width: 95%;
+  width: 100%;
   display: inline-flex;
+  padding: 16px;
+
 }
 
 .big-img {
@@ -33,5 +35,27 @@
 
 .reviews {
   padding: 16px;
+  margin-top: 24px;
+}
+
+.map-show {
+  padding: 0 24px;
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: none;
+    object-position: 50% 10%;
+  }
+}
+
+.addons {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 28px 54px;
+  img {
+    width: 40px;
+    padding-right: 8px;
+  }
 }
 

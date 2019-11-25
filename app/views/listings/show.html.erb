@@ -2,18 +2,23 @@
 
 <div class="row">
 
-  <div class="col-8 listing-wrapper">
+
+  <div class="col-9 listing-wrapper">
     <div class="row listing-card">
       <div class="col-6 img-layout">
         <div class="row mb-2">
-          <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img">
+          <%= cl_image_tag @listing.photo, crop: :fill, class: 'big-img' %>
+          <!-- <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img"> -->
         </div>
         <div class="row d-flex flex-nowrap">
           <div>
-            <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+            <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
+            <!-- <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
           </div>
           <div>
-            <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+            <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
+            <!-- <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
+
           </div>
         </div>
 
@@ -26,7 +31,8 @@
             <% end %>
           </div>
           <p class='category'><%= @listing.category %></p>
-          <p><%= @listing.address %></p>
+          <p><em><%= @listing.address %></em></p>
+
         </div>
         <div class="description">
           <p>
@@ -40,10 +46,43 @@
       </div>
     </div>
 
+<div class="row">
+  <div class="col-4 addons">
+    <h4>Add-ons:</h4>
+    <div>
+    <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-36-512.png" alt="meal"> meal
+    </div>
+    <div>
+
+    <img src="https://cdn2.iconfinder.com/data/icons/doing-housework-part-1/64/house-03-512.png" alt="pillow"> pillow
+    </div>
+    <div>
+
+    <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/Massage_therapist_2-512.png" alt=""> massage
+    </div>
+  </div>
+  <div class="col-8">
+      <div class="map-show">
+        <img src="https://www.evenisgroup.com/wp-content/uploads/2019/05/BUREAU-VITKIN-1170x738.png" alt="map">
+      </div>
+  </div>
+</div>
+
     <div class="reviews">
+      <h2 class='text-center'>Reviews</h2>
       <% 10.times do %>
       <div class='review'>
+<!--     t.string "title"
+    t.integer "rating"
+    t.text "content"
+    t.bigint "user_id" -->
         <strong>Review</strong>
+                  <div class='stars'>
+            <% 5.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+
         <p>
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
@@ -58,15 +97,21 @@
   </div>
 
 
-  <div class="col-4 booking-form-wrapper">
+
+  <div class="col-3 booking-form-wrapper">
+
 
       <div class="booking-form">
         <h3><%= @listing.price %>$ <span>per hour</span></h3>
         <%= simple_form_for [@listing, @booking] do |f| %>
         <%= f.input :date, value: Date.today %>
-        <%= f.input :time, value: Time.now %>
+
+        <%= f.input :time, value: Time.now.getlocal.zone %>
         <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0', step: '0.5' }, placeholder: "0.5" %>
         <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+        <div class='d-flex justify-content-between px-4'>
+        <p>Total price:</p> <%= @listing.price %>$
+      </div>
         <%= f.submit "Nap Here!", class: "btn btn-primary btn-block" %>
         <% end %>
       </div>
