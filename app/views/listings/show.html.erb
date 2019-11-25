@@ -6,14 +6,17 @@
     <div class="row listing-card">
       <div class="col-6 img-layout">
         <div class="row mb-2">
-          <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img">
+          <%= cl_image_tag @listing.photo, alt: @listing.title, class: 'big-img' %>
+          <!-- <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img"> -->
         </div>
         <div class="row d-flex flex-nowrap">
           <div>
-            <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+            <%= cl_image_tag @listing.photo, alt: @listing.title, class: "small-img pr-1" %>
+            <!-- <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
           </div>
           <div>
-            <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img">
+            <%= cl_image_tag @listing.photo, alt: @listing.title, class: "small-img pl-1" %>
+            <!-- <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
           </div>
         </div>
 
