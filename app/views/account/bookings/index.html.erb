@@ -4,57 +4,85 @@
 </div>
 
 <div class="container justify-content-center">
-  <div class="border-bottom mb-3">
-    <h3>My Upcoming Bookings</h3>
+
+  <div class="border-bottom">
+    <h3>My Current Bookings</h3>
 
     <% @current_bookings.each do |booking| %>
-      <div class="card-product  mt-2">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product mt-2 d-flex justify-content-between">
+      <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
 
-        <div class="card-product-infos d-flex justify-content-between align-items-center">
+      <div class="card-product-infos align-items-end">
 
-          <div>
-            <h2><%= booking.listing.title %></h2>
-            <h5><%= booking.listing.category %></h5>
-            <h5><%= booking.listing.address %></h5>
-          </div>
+        <div>
+          <h2><%= booking.listing.title %></h2>
+          <h5><%= booking.listing.category %></h5>
+          <h5><%= booking.listing.address %></h5>
+        </div>
 
-          <div>
-          <h5><%= booking.listing.price %></h5>
-          </div>
-
+        <div>
         </div>
 
       </div>
+      <div class="ml-auto">
+        <h5><%= booking.listing.price %></h5>
+      </div>
+    </div>
     <% end %>
   </div>
-  <div class="border-bottom mb-3">
+  <div class="border-bottom">
     <h3>My Past Bookings</h3>
 
     <% @previous_bookings.each do |booking| %>
-      <div class="card-product mt-2">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product mt-2 d-flex justify-content-between">
+      <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
 
-        <div class="card-product-infos d-flex justify-content-between align-items-center">
+      <div class="card-product-infos align-items-end">
 
-          <div>
-            <h2><%= booking.listing.title %></h2>
-            <h5><%= booking.listing.category %></h5>
-            <h5><%= booking.listing.address %></h5>
-          </div>
+        <div>
+          <h2><%= booking.listing.title %></h2>
+          <h5><%= booking.listing.category %></h5>
+          <h5><%= booking.listing.address %></h5>
+        </div>
 
-          <div>
-          <h5><%= booking.listing.price %></h5>
-          </div>
-
+        <div>
         </div>
 
       </div>
+      <div class="ml-auto">
+        <h5><%= booking.listing.price %></h5>
+      </div>
+
+    </div>
     <% end %>
   </div>
 
   <div class="border-bottom">
     <h3>My Current Listings</h3>
-  </div>
 
+    <% current_user.listings.each do |listing| %>
+    <div class="card-product mt-2 d-flex justify-content-between">
+      <%= cl_image_tag listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
+
+      <div class="card-product-infos align-items-end">
+
+        <div>
+          <h2><%= listing.title %></h2>
+          <h5><%= listing.category %></h5>
+          <h5><%= listing.address %></h5>
+        </div>
+
+        <div>
+        </div>
+
+      </div>
+      <div class="ml-auto">
+        <h5>$<%= listing.price %></h5>
+        <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <i class="fas fa-trash-alt btn btn-transparent"></i>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

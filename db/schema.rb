@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_101413) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "message"
+    t.time "time"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -38,6 +39,18 @@ ActiveRecord::Schema.define(version: 2019_11_25_101413) do
     t.text "description"
     t.string "photo"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.integer "rating"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +71,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_101413) do
   add_foreign_key "bookings", "listings"
   add_foreign_key "bookings", "users"
   add_foreign_key "listings", "users"
+  add_foreign_key "reviews", "listings"
+  add_foreign_key "reviews", "users"
 end
