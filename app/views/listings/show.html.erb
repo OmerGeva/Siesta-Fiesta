@@ -5,7 +5,7 @@
   <div class="header">
   </div>
   <div class="image">
-    <%= image_tag "http://kortx.co/wp-content/uploads/2019/05/couch-cool-couches-for-sale-and-sofas-s-cover-ideas-pillows-funky-cheap-unique-leather-grey-melbourne-diva-sofa-a-sa.jpg", alt: "alttext" %>
+    <%= cl_image_tag @listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
   </div>
 </div>
 <div class="d-flex">
@@ -24,11 +24,7 @@
 </div>
 <div class="description">
   <p>
-    Pellentesque habitant morbi tristique senectus et netus et malesuada
-    fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-    ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
-    quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-    eleifend leo.
+    <%= @listing.description %>
   </p>
 </div>
 
