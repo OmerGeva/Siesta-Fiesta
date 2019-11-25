@@ -2,6 +2,7 @@
 
 <div class="row">
 
+
   <div class="col-9 listing-wrapper">
     <div class="row listing-card">
       <div class="col-6 img-layout">
@@ -17,6 +18,7 @@
           <div>
             <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
             <!-- <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
+
           </div>
         </div>
 
@@ -30,6 +32,7 @@
           </div>
           <p class='category'><%= @listing.category %></p>
           <p><em><%= @listing.address %></em></p>
+
         </div>
         <div class="description">
           <p>
@@ -79,6 +82,7 @@
             <i class="fas fa-star"></i>
             <% end %>
           </div>
+
         <p>
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
@@ -93,12 +97,15 @@
   </div>
 
 
+
   <div class="col-3 booking-form-wrapper">
+
 
       <div class="booking-form">
         <h3><%= @listing.price %>$ <span>per hour</span></h3>
         <%= simple_form_for [@listing, @booking] do |f| %>
         <%= f.input :date, value: Date.today %>
+
         <%= f.input :time, value: Time.now.getlocal.zone %>
         <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0', step: '0.5' }, placeholder: "0.5" %>
         <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
