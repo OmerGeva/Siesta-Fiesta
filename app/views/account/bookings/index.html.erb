@@ -1,6 +1,8 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-around align-items-center">
   <h1 class="m-5">Welcome back <%= current_user.first_name %>!</h1>
+  <%= link_to "Make a new Listing!", new_listing_path, class: 'btn btn-primary rounded' %>
 </div>
+
 <div class="container justify-content-center">
   <div class="border-bottom mb-3">
     <h3>My Upcoming Bookings</h3>

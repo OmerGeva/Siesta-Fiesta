@@ -1,3 +1,20 @@
-img {
-  width: 75vw;
+.big-img {
+  width: 100%;
+}
+
+.small-img {
+  width: 100%;
+}
+
+.stars {
+  color: $gold;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.category {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  display: inline-block;
+  border-radius: 4px;
 }
