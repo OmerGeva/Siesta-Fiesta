@@ -25,9 +25,10 @@
     <% @listings.each do |listing| %>
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="card m-2 shadow-sm" style="height: 450px; width: 16rem;">
+
           <%= link_to listing_path(listing) do %>
-          <%= cl_image_tag listing.photo, class: 'card-img-top', scrop: :fill %>
-        <!-- <img src="https://pixfeeds.com/images/sleep/pillows/1200-488664889-boy-sleeping-on-couch.jpg" class="card-img-top" alt="Image"> -->
+          <%= cl_image_tag listing.photo, class: 'card-img-top', alt: listing.title, crop: :fill %>
+
         <div class="card-body d-flex flex-column">
           <h3 class="card-title pb-3 border-bottom">
             <%= listing.title %></h3>

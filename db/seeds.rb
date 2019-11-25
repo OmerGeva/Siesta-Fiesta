@@ -23,7 +23,7 @@ listing.remote_photo_url = url
 listing.save
 
 url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574677833/casting-couch_t0f3mt.jpg'
-listing = Listing.create(title: 'Office Breakroom', category: 'couch', price: '20', address: Faker::Address.street_address, user: user)
+listing = Listing.create(title: 'Office Breakroom', category: 'couch', price: '20', address: Faker::Address.street_address, user: user, description: Faker::Lorem.paragraph_by_chars)
 listing.remote_photo_url = url
 listing.save
 
