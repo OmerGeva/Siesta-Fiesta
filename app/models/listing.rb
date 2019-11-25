@@ -4,6 +4,6 @@ class Listing < ApplicationRecord
 
   validates :title, uniqueness: true
   validates :address, uniqueness: true
-  validates :category, inclusion: { in: ['couches', 'yoga mats', 'tents'] }
+  validates :category, inclusion: { in: ['couch', 'yoga mat', 'tent'] }
   mount_uploader :photo, PhotoUploader
 end
