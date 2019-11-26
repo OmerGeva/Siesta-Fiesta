@@ -14,3 +14,14 @@
 @import "listings/index";
 @import 'listings/show';
 @import 'components/footer';
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
