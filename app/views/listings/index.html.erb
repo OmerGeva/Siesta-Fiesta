@@ -1,5 +1,5 @@
 <div class="index-container">
-<h1>Naps available</h1>
+  <h1>Naps available</h1>
   <div class="searchbar">
     <form>
       <div class="form-row">
@@ -20,19 +20,19 @@
   </div>
   <div class="filterbar">
     <div class="btn-group">
-  <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Price
-  </button>
-    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Category
-  </button>
-    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Location
-  </button>
-  <button class="btn btn-secondary btn-sm">Other</button>
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Price
+      </button>
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Category
+      </button>
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Location
+      </button>
+      <button class="btn btn-secondary btn-sm">Other</button>
 
 
-</div>
+    </div>
   </div>
 
   <div class="row">
@@ -41,30 +41,33 @@
         <% @listings.each do |listing| %>
         <%= link_to listing_path(listing) do %>
         <div class="card-product">
-            <%= cl_image_tag listing.photo, crop: :fill, alt: listing.title %>
+          <%= cl_image_tag listing.photo, crop: :fill, alt: listing.title %>
 
           <div class="card-product-infos p-2">
             <div class='d-flex justify-content-between'>
-            <h2><%= listing.title %></h2>
+              <h2><%= listing.title %></h2>
 
-            <!-- RATING -->
-            <% if listing.reviews.empty? %>
+              <!-- RATING -->
+              <% if listing.reviews.empty? %>
               <div class='stars'>
                 <% 5.times do %>
-                  <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
                 <% end %>
               </div>
-            <% else %>
+              <% else %>
               <div class='stars'>
                 <% ratings = listing.reviews.map(&:rating) %>
                 <% @avg_rating = (ratings.sum / ratings.length) %></p>
                 <% @avg_rating.times do %>
-                  <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <% end %>
+                <% (5 - @avg_rating).times do %>
+                <i class="far fa-star"></i>
                 <% end %>
               </div>
-            <% end %>
+              <% end %>
 
-          </div>
+            </div>
             <p><%= listing.category %></p>
             <p><%= listing.address %></p>
             <p><em>Extra option</em></p>
