@@ -2,17 +2,17 @@
 .categories {
   display: flex;
   justify-content: center;
-  img {
+  a {
+    img {
     height: 80px;
     margin: 0 24px;
-  }
-}
+    filter: brightness(80%);
 
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.8);
-  &:hover {
-    color: $hover;
-    text-decoration: none;
     }
+    &:hover {
+      img {
+        filter: brightness(100%);
+      }
+    }
+  }
 }

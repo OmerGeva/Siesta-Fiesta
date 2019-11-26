@@ -1,21 +1,41 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_listing, only: [:show, :destroy]
-  def index
-    @query = params[:category]
 
-    if @query && @query != ""
-      @listings = policy_scope(Listing).where(category: @query)
+  def index
+    if params[:category].present?
+      @listings = policy_scope(Listing).where(category: params[:category]).geocoded
+    elsif params[:search][:address].present?
+      @listings = policy_scope(Listing).near(params[:search][:address], 20)
     else
-      @listings = policy_scope(Listing)
+      @listings = policy_scope(Listing).geocoded
     end
+
+    @listings = policy_scope(Listing).geocoded
+    @markers = @listings.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { listing: listing }),
+        image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/1826/1826064.svg')
+      }
+    end
+
     authorize @listings
   end
 
   def show
     @listing = Listing.find(params[:id])
     @booking = Booking.new
+    @markers = [{
+                lat: @listing.latitude,
+                lng: @listing.longitude,
+                infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing }),
+                image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/1826/1826064.svg')
+              }]
+
     @review = Review.new
+
     authorize @listing
   end
 

@@ -64,9 +64,16 @@
           <div>
             <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/Massage_therapist_2-512.png" alt=""> massage
           </div>
+                  <div>
+          <img src="https://image.flaticon.com/icons/svg/2064/2064847.svg" alt=""> puppy
+        </div>
         </div>
         <div class="col-8 map-show">
-          <img src="https://www.evenisgroup.com/wp-content/uploads/2019/05/BUREAU-VITKIN-1170x738.png" alt="map">
+        <div id="map"
+             style="height: 300px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
         </div>
       </div>
       <div class="reviews">
@@ -88,8 +95,8 @@
           <p><%= review.content %></p>
         </div>
         <% end %>
-        <% end %>
       </div>
+    
       <div class="container">
         <%= simple_form_for [@listing, @review] do |f| %>
         <%= f.input :title %>
@@ -97,7 +104,9 @@
         <%= f.input :content %>
         <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
         <% end %>
+
       </div>
+    
     </div>
     <div class="col-3 booking-form-wrapper">
       <div class="booking-form">

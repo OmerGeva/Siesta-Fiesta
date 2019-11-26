@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# Listing.destroy_all
 user = User.create(email: 'sponge@bob.com', password: '123456', first_name: 'Sponge', last_name: 'Bob', photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574676603/SpongeBob_stock_art_wxxisz.png')
 
 url = "https://images.unsplash.com/photo-1484101403633-562f891dc89a"
@@ -33,7 +34,7 @@ listing.remote_photo_url = url
 listing.save
 
 url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574688332/PHOTO-2019-11-25-15-23-49_bkclz3.jpg'
-listing = Listing.create(title: 'Le Wagon', category: 'couch', price: '15', address: Faker::Address.street_address, user: user, description: Faker::Lorem.paragraph_by_chars)
+listing = Listing.create(title: 'Le Wagon', category: 'couch', price: '15', address: 'Ben Yehuda 32, Tel Aviv', user: user, description: Faker::Lorem.paragraph_by_chars)
 listing.remote_photo_url = url
 listing.save
 
