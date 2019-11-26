@@ -66,7 +66,11 @@
         </div>
       </div>
       <div class="col-8 map-show">
-        <img src="https://www.evenisgroup.com/wp-content/uploads/2019/05/BUREAU-VITKIN-1170x738.png" alt="map">
+        <div id="map"
+             style="height: 300px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
     <div class="reviews">

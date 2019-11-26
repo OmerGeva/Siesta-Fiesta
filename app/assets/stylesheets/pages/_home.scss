@@ -2,8 +2,17 @@
 .categories {
   display: flex;
   justify-content: center;
-  img {
+  a {
+    img {
     height: 80px;
     margin: 0 24px;
+    filter: brightness(80%);
+
+    }
+    &:hover {
+      img {
+        filter: brightness(100%);
+      }
+    }
   }
 }
