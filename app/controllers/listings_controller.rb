@@ -11,7 +11,6 @@ class ListingsController < ApplicationController
       @listings = policy_scope(Listing).geocoded
     end
 
-    @listings = policy_scope(Listing).geocoded
     @markers = @listings.map do |listing|
       {
         lat: listing.latitude,
