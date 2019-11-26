@@ -7,12 +7,3 @@
     margin: 0 24px;
   }
 }
-
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.8);
-  &:hover {
-    color: $hover;
-    text-decoration: none;
-    }
-}
