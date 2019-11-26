@@ -7,8 +7,18 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   namespace :account do
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :destroy] do
+      collection do
+        get 'pending', to: "bookings#pending_bookings", as: :pending
+      end
+      member do
+        patch 'accept', to: "bookings#accept_booking"
+      end
+    end
+
   end
+
+
   get "/account/edit", to: "account/bookings#edit_user"
   patch "/account/bookings", to: "account/bookings#update_user", as: :user
 
