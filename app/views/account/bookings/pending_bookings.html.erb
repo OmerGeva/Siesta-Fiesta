@@ -1,0 +1,32 @@
+
+<div class="container justify-content-center">
+
+  <div class="border-bottom mt-5">
+    <h3>My Requested Bookings</h3>
+
+    <% @requested_bookings.each do |booking| %>
+    <div class="card-product mt-2 d-flex justify-content-between">
+      <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
+
+      <div class="card-product-infos align-items-end">
+
+        <div>
+          <h2><%= booking.listing.title %></h2>
+          <h5><%= booking.listing.category %></h5>
+          <h5><%= booking.listing.address %></h5>
+        </div>
+
+        <div>
+        </div>
+
+      </div>
+      <div class="ml-auto">
+        <h5><%= booking.listing.price %></h5>
+        <%= link_to "Accept", accept_account_booking_path(booking), method: :patch  %>
+        <%= link_to "Decline", account_booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }%>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
