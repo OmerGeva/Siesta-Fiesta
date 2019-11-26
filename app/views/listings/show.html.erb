@@ -64,71 +64,73 @@
           <div>
             <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/Massage_therapist_2-512.png" alt=""> massage
           </div>
-                  <div>
-          <img src="https://image.flaticon.com/icons/svg/2064/2064847.svg" alt=""> puppy
-        </div>
+          <div>
+            <img src="https://image.flaticon.com/icons/svg/2064/2064847.svg" alt=""> puppy
+          </div>
         </div>
         <div class="col-8 map-show">
-        <div id="map"
-             style="height: 300px;"
-             data-markers="<%= @markers.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div id="map"
+          style="height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-        </div>
-      </div>
-      <div class="reviews">
-        <h2 class='text-center'>Reviews</h2>
-        <% if @listing.reviews.empty? %>
-          <center><em>No reviews yet</em></center>
-        <% else %>
-          <% @listing.reviews.each do |review| %>
-          <div class='review'>
-            <strong><%= review.title %></strong>
-            <div class='stars'>
-              <% review.rating.times do %>
-              <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - review.rating).times do %>
-              <i class="far fa-star"></i>
-              <% end %>
-            </div>
-            <p><%= review.content %></p>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
-
-      <div class="container">
-        <%= simple_form_for [@listing, @review] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :rating %>
-        <%= f.input :content %>
-        <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
-        <% end %>
-
-      </div>
-
-    </div>
-    <div class="col-3 booking-form-wrapper">
-      <div class="booking-form">
-        <h3>$
-          <span id='hourPrice'><%= @listing.price %></span>
-          <span>per hour</span></h3>
-          <%= simple_form_for [@listing, @booking] do |f| %>
-          <%= f.input :date, value: Date.today, as: :string, input_html: {class: "datepicker"} %>
-          <%= f.input :time, value: Time.now %>
-          <span id='quantity'>
-            <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0.5', step: '0.5' }, placeholder: "1.0" %>
-          </span>
-          <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
-          <div class='d-flex justify-content-between px-4'>
-            <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
-          </div>
-          <%= f.submit "Request Nap!", class: "btn btn-primary btn-block" %>
-        <% end %>
-        </div>
-
-
-
       </div>
     </div>
+    <div class="reviews">
+      <h2 class='text-center'>Reviews</h2>
+      <% if @listing.reviews.empty? %>
+      <center><em>No reviews yet</em></center>
+      <% else %>
+      <% @listing.reviews.each do |review| %>
+      <div class='review'>
+        <strong><%= review.title %></strong>
+        <div class='stars'>
+          <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+          <% end %>
+        </div>
+        <p><%= review.content %></p>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="container">
+      <%= simple_form_for [@listing, @review] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
+      <% end %>
+
+    </div>
+
+  </div>
+  <div class="col-3 booking-form-wrapper">
+    <div class="booking-form">
+      <h3>$
+        <span id='hourPrice'><%= @listing.price %></span>
+        <span>per hour</span></h3>
+        <%= simple_form_for [@listing, @booking] do |f| %>
+        <%= f.input :date, value: Date.today, as: :string, input_html: {class: "datepicker"} %>
+        <%= f.input :time, value: Time.now %>
+        <span id='quantity'>
+          <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0.5', step: '0.5' }, placeholder: "1.0" %>
+        </span>
+        <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+        <div class='d-flex justify-content-between px-4'>
+          <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
+        </div>
+        <%= f.submit "Request Nap!", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
