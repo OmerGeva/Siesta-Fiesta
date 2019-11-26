@@ -2,8 +2,6 @@ import "bootstrap";
 import "../plugins/flatpickr"
 import { getTotalPrice } from '../components/price';
 
-getTotalPrice();
-
 // import { iconChanger } from './homepage'
 // iconChanger();
 
@@ -15,3 +13,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 
 initMapbox();
 initAutocomplete();
+
+if (document.URL.match(/listings\/\d+/)) {
+  getTotalPrice();
+}
