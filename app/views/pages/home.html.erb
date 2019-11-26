@@ -8,61 +8,64 @@
 
 <div class="container">
   <h3 class='text-center'>Choose category:</h3>
-    <div class="categories">
-      <%= link_to listings_path(@query, category: 'couch') do %>
-        <img src="https://image.flaticon.com/icons/svg/673/673277.svg" alt="couch" id="couch-icon">
-      <% end %>
-      <%= link_to listings_path(@query, category: 'yoga mat') do %>
-        <img src="https://image.flaticon.com/icons/svg/1210/1210531.svg" alt="yoga mat" id="yoga-icon">
-      <% end %>
-      <%= link_to listings_path(@query, category: 'tent') do %>
-        <img src="https://image.flaticon.com/icons/svg/452/452702.svg" alt="tent" id="tent-icon">
-      <% end %>
-    </div>
+  <div class="categories">
+    <%= link_to listings_path(@query, category: 'couch') do %>
+    <img src="https://image.flaticon.com/icons/svg/673/673277.svg" alt="couch" id="couch-icon">
+    <% end %>
+    <%= link_to listings_path(@query, category: 'yoga mat') do %>
+    <img src="https://image.flaticon.com/icons/svg/1210/1210531.svg" alt="yoga mat" id="yoga-icon">
+    <% end %>
+    <%= link_to listings_path(@query, category: 'tent') do %>
+    <img src="https://image.flaticon.com/icons/svg/452/452702.svg" alt="tent" id="tent-icon">
+    <% end %>
+  </div>
 
   <h1 class="m-3 border-bottom">Featured naps nearby: </h1>
   <div class="row">
     <% @listings.each do |listing| %>
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="card m-2 shadow-sm" style="height: 500px; width: 17rem;">
-          <%= link_to listing_path(listing) do %>
-          <%= cl_image_tag listing.photo, class: 'card-img-top', scrop: :fill %>
+        <%= link_to listing_path(listing) do %>
+        <%= cl_image_tag listing.photo, class: 'card-img-top', scrop: :fill %>
         <div class="card-body d-flex flex-column">
           <h3 class="card-title pb-3 border-bottom">
             <%= listing.title %></h3>
             <% end %>
-          <div class="d-flex justify-content-between align-items-end mt-auto">
-            <div>
+            <div class="d-flex justify-content-between align-items-end mt-auto">
+              <div>
 
-              <!-- RATING -->
-              <% if listing.reviews.empty? %>
+                <!-- RATING -->
+                <% if listing.reviews.empty? %>
                 <div class='stars'>
                   <% 5.times do %>
-                    <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
                   <% end %>
                 </div>
-              <% else %>
+                <% else %>
                 <div class='stars'>
-                <% ratings = listing.reviews.map(&:rating) %>
-                <% avg_rating = (ratings.sum / ratings.length) %></p>
+                  <% ratings = listing.reviews.map(&:rating) %>
+                  <% avg_rating = (ratings.sum / ratings.length) %></p>
                   <% avg_rating.times do %>
-                    <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - avg_rating).times do %>
+                  <i class="far fa-star"></i>
                   <% end %>
                 </div>
-              <% end %>
+                <% end %>
 
-              <p class="card-text"><%= listing.category.capitalize %></p>
-              <p class="card-text"><%= listing.address %></p>
+                <p class="card-text"><%= listing.category.capitalize %></p>
+                <p class="card-text"><%= listing.address %></p>
+              </div>
+              <p class="card-text">$<%= listing.price %></p>
             </div>
-            <p class="card-text">$<%= listing.price %></p>
           </div>
         </div>
-      </div>
 
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>
 
 <!-- <script>
   navigator.geolocation.getCurrentPosition((data) => {

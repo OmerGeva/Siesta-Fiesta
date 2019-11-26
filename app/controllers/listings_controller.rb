@@ -27,13 +27,14 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @booking = Booking.new
-
     @markers = [{
                 lat: @listing.latitude,
                 lng: @listing.longitude,
                 infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing }),
                 image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/1826/1826064.svg')
               }]
+
+    @review = Review.new
 
     authorize @listing
   end

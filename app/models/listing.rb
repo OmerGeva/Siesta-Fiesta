@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+
   validates :title, uniqueness: true
   validates :address, presence: true
   validates :category, inclusion: { in: ['couch', 'yoga mat', 'tent'] }

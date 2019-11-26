@@ -1,11 +1,11 @@
-class Account::BookingsPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def pending_booking?
+  def create?
     true
   end
 end

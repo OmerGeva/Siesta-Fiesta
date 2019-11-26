@@ -12,12 +12,17 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new
+
     @review = Review.new(review_params)
     @review.listing = @listing
+    @review.user = current_user
+    authorize @review
+
     if @review.save
       redirect_to listing_path(@listing)
     else
-      render :new
+      render 'listings/show'
     end
   end
 
