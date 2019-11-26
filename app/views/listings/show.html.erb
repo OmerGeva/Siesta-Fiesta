@@ -90,6 +90,14 @@
         <% end %>
         <% end %>
       </div>
+      <% end %>
+      <% end %>
+      <%= simple_form_for [@listing, @review] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
+      <% end %>
     </div>
     <div class="col-3 booking-form-wrapper">
       <div class="booking-form">
