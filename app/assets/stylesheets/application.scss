@@ -76,3 +76,7 @@ body {
 #listings:checked ~ .panels #listings-panel{
   display: block;
 }
+
+.swal-overlay {
+  background-color: rgba(50, 50, 50, 0.8);
+}
