@@ -4,72 +4,81 @@ user1 = User.create(
   password: '123456',
   first_name: 'Sponge',
   last_name: 'Bob',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574676603/SpongeBob_stock_art_wxxisz.png'
   )
+user1.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574676603/SpongeBob_stock_art_wxxisz.png'
+user1.save
 
 user2 = User.create(
   email: 'noah@nash.com',
   password: '123456',
   first_name: 'Noah',
   last_name: 'Nash',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574845946/Users/NoahNash_pco64j.jpg'
   )
+user2.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574845946/Users/NoahNash_pco64j.jpg'
+user2.save
 
 user3 = User.create(
   email: 'levy@henry.com',
   password: '123456',
   first_name: 'Levy',
   last_name: 'Henry',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846398/Users/LevyHenry_kk3qiu.jpg'
   )
+user3.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846398/Users/LevyHenry_kk3qiu.jpg'
+user3.save
 
 user4 = User.create(
   email: 'angelica@sharpe.com',
   password: '123456',
   first_name: 'Angelica',
   last_name: 'Sharpe',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846572/Users/AngelicaSharpe_qbhwxl.jpg'
   )
+user4.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846572/Users/AngelicaSharpe_qbhwxl.jpg'
+user4.save
 
 user5 = User.create(
   email: 'sue@wheatley.com',
   password: '123456',
   first_name: 'Sue',
   last_name: 'Wheatley',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846763/Users/SueWheatley_pph8dj.jpg'
   )
+user5.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574846763/Users/SueWheatley_pph8dj.jpg'
+user5.save
 
 user6 = User.create(
   email: 'jaime@barclay.com',
   password: '123456',
   first_name: 'Jaime',
   last_name: 'Barclay',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847385/Users/JaimeBarclay_k38twq.jpg'
   )
+user6.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847385/Users/JaimeBarclay_k38twq.jpg'
+user6.save
 
 user7 = User.create(
   email: 'johnny@elwood.com',
   password: '123456',
   first_name: 'Johnny',
   last_name: 'Elwood',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847497/Users/JohnnyElwood_gcklgm.jpg'
   )
+user7.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847497/Users/JohnnyElwood_gcklgm.jpg'
+user7.save
 
 user8 = User.create(
   email: 'veronica@charlton.com',
   password: '123456',
   first_name: 'Veronica',
   last_name: 'Charlton',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847739/Users/VeronicaCharlton_fodp6t.jpg'
   )
+user8.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574847739/Users/VeronicaCharlton_fodp6t.jpg'
+user8.save
 
 user9 = User.create(
   email: 'david@sellam.com',
   password: '123456',
   first_name: 'David',
   last_name: 'Sellam',
-  photo: 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574850625/Users/DavidSellam_ohqipz.jpg'
   )
+user9.remote_photo_url = 'https://res.cloudinary.com/dv2x1zvtu/image/upload/v1574850625/Users/DavidSellam_ohqipz.jpg'
+user9.save
 
 # Listings & Reviews -------------------------------->
 
