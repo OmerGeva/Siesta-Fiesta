@@ -4,7 +4,7 @@
     <div class="col-8">
       <%= simple_form_for [@listing] do |f| %>
       <%= f.input :title %>
-      <%= f.input :category, collection: ['couch', 'yoga mat', 'tent']  %>
+      <%= f.input :category, collection: ['couch', 'yoga mat', 'tent'], :input_html => { :class => "select2" } %>
       <%= f.input :address %>
       <%= f.input :price %>
       <%= f.input :description %>
