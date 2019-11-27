@@ -21,16 +21,14 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: $background-color;
+  animation: fake 1s infinite;
+//   line-height: 1.5;
+//   font-size: 1em;
 }
 .content {
   flex: 1 0 auto;
-}
-
-
-body {
-  line-height: 1.5;
-  font-size: 1em;
-  background-color: #ddd;
+  background: rgba(0,0,0,0.3);
 }
 
 @keyframes fake {
@@ -40,17 +38,6 @@ body {
   to {
     opactity: 1
   }
-}
-body {
-  animation: fake 1s infinite;
-}
-
-
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-size: 1em;
-  background-color: #ddd;
 }
 
 .radio-tabs .state {
