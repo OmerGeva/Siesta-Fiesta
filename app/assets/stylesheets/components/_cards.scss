@@ -1,6 +1,90 @@
-.card-img-top {
-  height: 240px;
-  object-fit: cover;
+// --- HOME PAGE --- //
+
+.home-card {
+  height: 400px;
+  width: 17rem;
+  margin: 0.5rem !important;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    &:hover {
+      color: $hover;
+      text-decoration: none;
+      }
+  }
+}
+
+.home-card-img {
+  position: relative;
+  transition: .6s ease;
+  img {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: .6s ease;
+  }
+  &:hover {
+    .home-card-title {
+      display: none;
+    }
+    .img-gradient:after {
+      display: none;
+    }
+  }
+}
+
+.home-card-title {
+  transition: .6s ease;
+  color: white;
+  font-family: $card-headers-font;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  opacity: 0.82;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-gradient{
+  position:relative;
+  display:inline-block;
+}
+
+.img-gradient:after {
+  content:'';
+  transition: .6s ease;
+  position:absolute;
+  left:0; top:0;
+  width:100%; height:100%;
+  background:
+      linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+  background-blend-mode: screen;
+  display:inline-block;
+  border-radius: 10px 10px 0 0;
+}
+
+.img-gradient img{
+  display:block;
+}
+
+.home-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 }
 
 .card-product {
