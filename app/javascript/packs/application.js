@@ -16,9 +16,9 @@ import { previewImageOnFileSelect } from '../components/photo_preview';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-import { bannerChanger } from '../components/banner_changer';
-import { setBckImage } from '../components/banner_changer';
-export { backgroundSequence } from '../components/banner_changer';
+// import { bannerChanger } from '../components/banner_changer';
+// import { setBckImage } from '../components/banner_changer';
+// export { backgroundSequence } from '../components/banner_changer';
 
 import { initSweetalert } from '../components/init_sweetalert';
 
@@ -32,9 +32,9 @@ initAutocomplete();
 initSelect2();
 
 // bannerChanger();
-bannerChanger();
-setBckImage();
-backgroundSequence();
+// bannerChanger();
+// setBckImage();
+// backgroundSequence();
 
 
 previewImageOnFileSelect();
