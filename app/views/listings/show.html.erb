@@ -115,7 +115,7 @@
         <span id='hourPrice'><%= @listing.price %></span>
         <span>per hour</span></h3>
         <%= simple_form_for [@listing, @booking] do |f| %>
-        <%= f.input :date, value: Date.today, as: :string, input_html: {class: "datepicker"} %>
+        <%= f.input :date, value: Date.today, as: :string, input_html: {class: "datepicker" } %>
         <%= f.input :time, value: Time.now %>
         <span id='quantity'>
           <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0.5', step: '0.5' }, placeholder: "1.0" %>
