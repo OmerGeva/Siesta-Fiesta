@@ -21,8 +21,9 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: $background-color;
 }
 .content {
   flex: 1 0 auto;
+  background: rgba(0,0,0,0.3);
 }
-

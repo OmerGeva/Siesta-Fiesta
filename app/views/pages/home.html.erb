@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2994&q=80);">
+<div id="bannerImage" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2994&q=80);">
   <div class="container">
     <h1 class="d-flex justify-content-around mb-3">Take a nap at</h1>
     <h3 class="d-flex justify-content-around mb-5"><%= render "form", listing: @new_listing %></h3>
@@ -7,7 +7,7 @@
 
 
 <div class="container">
-  <h3 class='text-center'>Choose category:</h3>
+  <h3 class='headers text-center'>Choose category:</h3>
   <div class="categories">
     <%= link_to listings_path(@query, category: 'couch') do %>
     <img src="https://image.flaticon.com/icons/svg/673/673277.svg" alt="couch" id="couch-icon">
@@ -20,8 +20,8 @@
     <% end %>
   </div>
 
-  <h1 class="m-3 border-bottom">Featured naps nearby: </h1>
-  <div class="row">
+  <h1 class="m-3 border-bottom"></h1>
+  <div class="row w-100">
     <% @listings.each do |listing| %>
     <div class="col-lg-3 col-md-4 col-sm-6">
         <%= link_to listing_path(listing) do %>
@@ -66,7 +66,7 @@
                 <p class="card-text"><%= listing.category.capitalize %></p>
                 <p class="card-text"><%= listing.address %></p>
               </div>
-              <p class="card-text">$<%= listing.price %></p>
+              <p class="price">$<%= listing.price %></p>
             </div>
           </div>
         </div>

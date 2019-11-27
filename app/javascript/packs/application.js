@@ -15,6 +15,8 @@ import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 
+import { bannerChanger } from '../components/banner_changer'
+
 
 if (document.URL.match(/listings\/\d+/)) {
   getTotalPrice();
@@ -24,3 +26,5 @@ initMapbox();
 initAutocomplete();
 
 initSelect2();
+
+bannerChanger();
