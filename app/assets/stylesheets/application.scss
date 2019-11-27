@@ -26,3 +26,66 @@ body {
   flex: 1 0 auto;
 }
 
+
+body {
+  line-height: 1.5;
+  font-size: 1em;
+  background-color: #ddd;
+}
+
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opactity: 1
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 1em;
+  background-color: #ddd;
+}
+
+.radio-tabs .state {
+  position: absolute;
+  left: -10000000px;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab {
+  font-size: 24px;
+  display: inline-block;
+  padding: .5em;
+  vertical-align: top;
+  background-color: rgba(0,0,0,0);
+  cursor: hand;
+  cursor: pointer;
+  &:hover{
+    color: gray;
+  }
+}
+
+.panel {
+  display: none;
+}
+.radio-tabs .panel {
+  display: none;
+}
+#bookings:checked ~ .tabs #bookings-tab,
+#listings:checked ~ .tabs #listings-tab{
+  border-bottom: 1px solid gray;
+}
+#bookings:checked ~ .panels #bookings-panel,
+#listings:checked ~ .panels #listings-panel{
+  display: block;
+}
