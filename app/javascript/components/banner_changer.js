@@ -1,31 +1,21 @@
-const images = ["https://images.unsplash.com/photo-1540991310315-65c19abac6b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"];
-let i = 0;
-const changeBanner = () => {
-  if(images.length == i){
-    i = 0;
-  }
-  else {
-    document.getElementById("bannerImage").style.backgroundImage =
-      `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${images[i]}`;
-    i++;
+const bgImageArray = ["https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2994&q=80", "https://images.unsplash.com/photo-1540991310315-65c19abac6b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"],
+secs = 4;
+bgImageArray.forEach(function(img){
+    new Image().src = img;
+    // caches images, avoiding white flash between background replacements
+});
+
+function backgroundSequence() {
+  window.clearTimeout();
+  let k = 0;
+  for (i = 0; i < bgImageArray.length; i++) {
+    setTimeout(function(){
+      document.getElementById("bannerImage").style.background = "url(" + bgImageArray[k] + ") no-repeat center center fixed";
+      document.getElementById("bannerImage").style.backgroundSize ="cover";
+    if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 1000))} else { k++; }
+    }, (secs * 1000) * i)
   }
 }
+backgroundSequence();
 
-const bannerChanger = () => {
-  setInterval(changeBanner, 3000)
-}
-
-export { bannerChanger };
-
-
-// let current = 0,
-//     slides = document.getElementsById("bannerImage").style.backgroundImage =
-//       `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${images[i]}`;;
-
-// setInterval(function() {
-//   for (var i = 0; i < slides.length; i++) {
-//     slides[i].style.opacity = 0;
-//   }
-//   current = (current != slides.length - 1) ? current + 1 : 0;
-//   slides[current].style.opacity = 1;
-// }, 3000);
+export { backgroundSequence };
