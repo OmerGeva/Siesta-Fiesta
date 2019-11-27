@@ -18,6 +18,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 
 import { bannerChanger } from '../components/banner_changer'
 
+import { initSweetalert } from '../components/init_sweetalert';
 
 if (document.URL.match(/listings\/\d+/)) {
   getTotalPrice();
@@ -28,6 +29,29 @@ initAutocomplete();
 
 initSelect2();
 
-bannerChanger();
+// bannerChanger();
 
 previewImageOnFileSelect();
+
+
+initSweetalert('#new-listing-alert', {
+  title: "New Listing Made!",
+  text: "Soon everyone will be napping on your couch!",
+  icon: "success"}, (value) => {
+  if (value) {
+    const linkbtn = document.querySelector('#new-listing-button').click();
+    console.log(linkbtn);
+    linkbtn.click();
+  }
+});
+
+initSweetalert('#new-booking-request-alert', {
+  title: "Booking Requested!",
+  text: "The nap's host will soon get back to you!",
+  icon: "success"}, (value) => {
+  if (value) {
+    const link = document.querySelector('#new-booking-button');
+    console.log(link);
+    link.click();
+  }
+});

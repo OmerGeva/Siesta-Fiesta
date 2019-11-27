@@ -122,7 +122,6 @@
 <!-- End -->
 
 <!-- Booking Form -->
-
 </div>
 <div class="col-3 booking-form-wrapper">
   <div class="booking-form">
@@ -138,8 +137,9 @@
       <div class='d-flex justify-content-between px-4'>
         <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
       </div>
-      <%= f.submit "Request Nap!", class: "btn btn-primary btn-block" %>
+      <%= f.submit "Request Nap!", class: "btn btn-primary btn-block", id: "new-booking-button", style: "position: absolute; top: -1000px;" %>
       <% end %>
+      <button id="new-booking-request-alert" class="btn btn-primary btn-block">Request Booking!</button>
     </div>
   </div>
 
