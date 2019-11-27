@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
 
   def create
     # current_date = Date.new(params[:booking]["date(1i)"].to_i, params[:booking]["date(2i)"].to_i, params[:booking]["date(3i)"].to_i)
-    raise
     @listing = Listing.find(params[:listing_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
