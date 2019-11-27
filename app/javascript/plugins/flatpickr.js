@@ -8,8 +8,3 @@ flatpickr(".datepicker", {
   maxTime: "16:00"
 })
 
-// flatpickr(".timepicker", {
-//   enableTime: true,
-//   noCalendar: true,
-
-// })
