@@ -5,131 +5,146 @@
         <div class="col-6 img-layout">
           <div class="row mb-2">
             <%= cl_image_tag @listing.photo, crop: :fill, class: 'big-img' %>
-            <!-- <img class='big-img' src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="big img"> -->
           </div>
           <div class="row d-flex flex-nowrap">
             <div>
               <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
-              <!-- <img class="small-img pr-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
             </div>
             <div>
               <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pl-1' %>
-              <!-- <img class="small-img pl-1" src="https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1197&q=80" alt="small img"> -->
             </div>
           </div>
         </div>
         <div class='col-6 content'>
-          <h2><%= @listing.title %></h2>
-          <div class="details">
+          <div class="user-corner">
+           <%= cl_image_tag @listing.user.photo, class: "avatar" %>
+         </div>
+         <h2><%= @listing.title %></h2>
+         <div class="details">
 
-            <!-- RATING -->
-            <% if @listing.reviews.empty? %>
-            <div class='stars'>
-              <% 5.times do %>
-              <i class="far fa-star"></i>
-              <% end %>
-            </div>
-            <% else %>
-            <% ratings = @listing.reviews.map(&:rating) %>
-            <% @avg_rating = (ratings.sum / ratings.length) %></p>
-            <div class='stars'>
-              <% @avg_rating.times do %>
-              <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - @avg_rating).times do %>
-              <i class="far fa-star"></i>
-              <% end %>
-            </div>
+
+<!-- Ratings -->
+          <% if @listing.reviews.empty? %>
+          <div class='stars'>
+            <% 5.times do %>
+            <i class="far fa-star"></i>
             <% end %>
-
-            <p class='category'><%= @listing.category %></p>
-            <p><em><%= @listing.address %></em></p>
           </div>
-          <div class="description">
-            <p>
-              <%= @listing.description %>
-            </p>
+          <% else %>
+          <% ratings = @listing.reviews.map(&:rating) %>
+          <% @avg_rating = (ratings.sum / ratings.length) %></p>
+          <div class='stars'>
+            <% @avg_rating.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - @avg_rating).times do %>
+            <i class="far fa-star"></i>
+            <% end %>
           </div>
-        </div>
-      </div>
-      <div class="row map-row">
-        <div class="col-4 addons">
-          <h4>Add-ons:</h4>
-          <div>
-            <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-36-512.png" alt="meal"> meal
-          </div>
-          <div>
-            <img src="https://cdn2.iconfinder.com/data/icons/doing-housework-part-1/64/house-03-512.png" alt="pillow"> pillow
-          </div>
-          <div>
-            <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/Massage_therapist_2-512.png" alt=""> massage
-          </div>
-          <div>
-            <img src="https://image.flaticon.com/icons/svg/2064/2064847.svg" alt=""> puppy
-          </div>
-        </div>
-        <div class="col-8 map-show">
-          <div id="map"
-          style="height: 300px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-    </div>
-    <div class="reviews">
-      <h2 class='text-center'>Reviews</h2>
-      <% if @listing.reviews.empty? %>
-      <center><em>No reviews yet</em></center>
-      <% else %>
-      <% @listing.reviews.each do |review| %>
-      <div class='review'>
-        <strong><%= review.title %></strong>
-        <div class='stars'>
-          <% review.rating.times do %>
-          <i class="fas fa-star"></i>
           <% end %>
-          <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-          <% end %>
+<!-- Ratings end -->
+
+          <p class='category'><%= @listing.category %></p>
+          <p><em><%= @listing.address %></em></p>
         </div>
-        <p><%= review.content %></p>
+        <div class="description">
+          <p>
+            <%= @listing.description %>
+          </p>
+        </div>
       </div>
-      <% end %>
-      <% end %>
     </div>
 
-    <div class="container">
-      <%= simple_form_for [@listing, @review] do |f| %>
-      <%= f.input :title %>
-      <%= f.input :rating %>
-      <%= f.input :content %>
-      <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
-      <% end %>
-
-    </div>
-
-  </div>
-  <div class="col-3 booking-form-wrapper">
-    <div class="booking-form">
-      <h3>$
-        <span id='hourPrice'><%= @listing.price %></span>
-        <span>per hour</span></h3>
-        <%= simple_form_for [@listing, @booking] do |f| %>
-        <%= f.input :date, placeholder: Date.today, as: :string, input_html: {class: "datepicker" } %>
-        <span id='quantity'>
-          <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0.5', step: '0.5' }, placeholder: "1.0" %>
-        </span>
-        <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
-        <div class='d-flex justify-content-between px-4'>
-          <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
+<!-- Map -->
+    <div class="row map-row">
+      <div class="col-4 addons">
+        <h4>Add-ons:</h4>
+        <div>
+          <img src="https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-36-512.png" alt="meal"> meal
         </div>
-        <%= f.submit "Request Nap!", class: "btn btn-primary btn-block" %>
-        <% end %>
+        <div>
+          <img src="https://cdn2.iconfinder.com/data/icons/doing-housework-part-1/64/house-03-512.png" alt="pillow"> pillow
+        </div>
+        <div>
+          <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/Massage_therapist_2-512.png" alt=""> massage
+        </div>
+        <div>
+          <img src="https://image.flaticon.com/icons/svg/2064/2064847.svg" alt=""> puppy
+        </div>
       </div>
-
-
-
+      <div class="col-8 map-show">
+        <div id="map"
+        style="height: 300px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
+<!-- Map End -->
+
+<!-- Reviews -->
+  <div class="reviews">
+    <h2 class='text-center'>Reviews</h2>
+    <% if @listing.reviews.empty? %>
+    <center><em>No reviews yet</em></center>
+    <% else %>
+    <% @listing.reviews.each do |review| %>
+    <div class="review-avatar">
+     <%= cl_image_tag review.user.photo, class: "avatar" %>
+   </div>
+   <div class='review'>
+    <strong><%= review.title %></strong>
+    <div class='stars'>
+      <% review.rating.times do %>
+      <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+    </div>
+    <p><%= review.content %></p>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<!-- Reviews End -->
+
+<!-- Create Review Form -->
+<div class="container">
+  <%= simple_form_for [@listing, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div>
+
+<!-- End -->
+
+<!-- Booking Form -->
+
+</div>
+<div class="col-3 booking-form-wrapper">
+  <div class="booking-form">
+    <h3>$
+      <span id='hourPrice'><%= @listing.price %></span>
+      <span>per hour</span></h3>
+      <%= simple_form_for [@listing, @booking] do |f| %>
+      <%= f.input :date, placeholder: Date.today, as: :string, input_html: {class: "datepicker" } %>
+      <span id='quantity'>
+        <%= f.input :duration, label: 'Duration (hours)'.html_safe, input_html: { min: '0.5', step: '0.5' }, placeholder: "1.0" %>
+      </span>
+      <%= f.input :message, placeholder: "Can't wait to nap on your couch!"%>
+      <div class='d-flex justify-content-between px-4'>
+        <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
+      </div>
+      <%= f.submit "Request Nap!", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+
+<!-- End -->
+
+</div>
 </div>
 
