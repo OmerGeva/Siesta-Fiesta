@@ -5,84 +5,137 @@
 
 <div class="container justify-content-center">
 
-  <div class="border-bottom">
-    <h3>My Current Bookings</h3>
 
-    <% @current_bookings.each do |booking| %>
-    <div class="card-product mt-2 d-flex justify-content-between">
-      <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
 
-      <div class="card-product-infos align-items-end">
 
-        <div>
-          <h2><%= booking.listing.title %></h2>
-          <h5><%= booking.listing.category %></h5>
-          <h5><%= booking.listing.address %></h5>
-        </div>
-
-        <div>
-        </div>
-
-      </div>
-      <div class="ml-auto">
-        <h5><%= booking.listing.price %></h5>
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="border-bottom">
-    <h3>My Past Bookings</h3>
-
-    <% @previous_bookings.each do |booking| %>
-    <div class="card-product mt-2 d-flex justify-content-between">
-      <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
-
-      <div class="card-product-infos align-items-end">
-
-        <div>
-          <h2><%= booking.listing.title %></h2>
-          <h5><%= booking.listing.category %></h5>
-          <h5><%= booking.listing.address %></h5>
-        </div>
-
-        <div>
-        </div>
-
-      </div>
-      <div class="ml-auto">
-        <h5><%= booking.listing.price %></h5>
-      </div>
-
-    </div>
-    <% end %>
-  </div>
-
-  <div class="border-bottom">
-    <h3>My Current Listings</h3>
-
-    <% current_user.listings.each do |listing| %>
-    <div class="card-product mt-2 d-flex justify-content-between">
-      <%= cl_image_tag listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
-
-      <div class="card-product-infos align-items-end">
-
-        <div>
-          <h2><%= listing.title %></h2>
-          <h5><%= listing.category %></h5>
-          <h5><%= listing.address %></h5>
-        </div>
-
-        <div>
-        </div>
-
-      </div>
-      <div class="ml-auto">
-        <h5>$<%= listing.price %></h5>
-        <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do%>
-        <i class="fas fa-trash-alt btn btn-transparent"></i>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-  </div>
 </div>
+
+<div class="radio-tabs container">
+
+  <input class="state" type="radio" title="bookings" name="houses-state" id="bookings" checked />
+  <input class="state" type="radio" title="listings" name="houses-state" id="listings" />
+
+  <div class="tabs">
+    <label for="bookings" id="bookings-tab" class="tab">Bookings</label>
+    <label for="listings" id="listings-tab" class="tab">Listings</label>
+  </div>
+
+  <div class="panels">
+    <ul id="bookings-panel" class="panel active">
+      <div class="border-bottom">
+        <h3 class="text-center">My Current Bookings</h3>
+        <% if @current_bookings.empty? %>
+        <div class="text-center">
+          <div class="card-product mt-2 d-flex justify-content-between">
+            <div class="card-product-infos align-items-end">
+              <h3 class="text-center mb-2">You have no bookings!</h3>
+              <div class="d-flex justify-content-center text-align-center">
+                  <img src="https://purepng.com/public/uploads/large/purepng.com-mini-tenttentsheltersheets-of-fabriccampcampingpavilionencampmenttampon-1701528488204wkjwi.png" alt="tent" id="couch-icon"  style="width: 50px">
+                </div>
+              <%= link_to "Book", "/", class: "btn btn-primary btn-sm m-3"%>
+            </div>
+          </div>
+          <% end %>
+          <% @current_bookings.each do |booking| %>
+          <div class="card-product mt-2 d-flex justify-content-between">
+            <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
+
+            <div class="card-product-infos align-items-end">
+
+              <div>
+                <h2><%= booking.listing.title %></h2>
+                <h5><%= booking.listing.category %></h5>
+                <h5><%= booking.listing.address %></h5>
+              </div>
+
+              <div>
+              </div>
+
+            </div>
+            <div class="ml-auto">
+              <h5><%= booking.listing.price %></h5>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="border-bottom">
+          <h3 class="text-center">My Past Bookings</h3>
+          <% if @previous_bookings.empty? %>
+          <div class="card-product mt-2 d-flex justify-content-between">
+            <div class="card-product-infos align-items-end">
+              <h3 class="text-center mb-2">You have previous bookings!</h3>
+             <div class="d-flex justify-content-center text-align-center">
+                  <img src="http://atlas-content-cdn.pixelsquid.com/stock-images/yoga-mat-rA7KXZ2-600.jpg" alt="couch" id="couch-icon"  style="width: 80px">
+                </div>
+            </div>
+            <% end %>
+            <% @previous_bookings.each do |booking| %>
+            <div class="card-product mt-2 d-flex justify-content-between">
+              <%= cl_image_tag booking.listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
+
+              <div class="card-product-infos align-items-end">
+
+                <div>
+                  <h2><%= booking.listing.title %></h2>
+                  <h5><%= booking.listing.category %></h5>
+                  <h5><%= booking.listing.address %></h5>
+                </div>
+
+                <div>
+                </div>
+
+              </div>
+              <div class="ml-auto">
+                <h5><%= booking.listing.price %></h5>
+              </div>
+
+            </div>
+            <% end %>
+          </div>
+        </ul>
+        <ul id="listings-panel" class="panel">
+          <div>
+            <div class="text-center">
+              <h3 class="mb-3">My Current Listings</h3>
+              <%= link_to "View Pending Bookings", pending_account_bookings_path, class: 'btn btn-primary rounded mb-3' %>
+            </div>
+            <% if current_user.listings.empty? %>
+            <div class="card-product mt-2 d-flex justify-content-between">
+              <div class="card-product-infos align-items-end">
+                <h3 class="text-center mb-2">You have no listings, make one above!</h3>
+                <div class="d-flex justify-content-center text-align-center">
+                  <img src="https://cdn.pixabay.com/photo/2012/04/26/18/47/sofa-42817_960_720.png" alt="couch" id="couch-icon"  style="width: 80px">
+                </div>
+
+              </div>
+              <% end %>
+              <% current_user.listings.each do |listing| %>
+              <div class="card-product mt-2 d-flex justify-content-between">
+                <%= cl_image_tag listing.photo,height: 200, crop: :fill, class: "card-img-top rounded" %>
+
+                <div class="card-product-infos align-items-end">
+
+                  <div>
+                    <h2><%= listing.title %></h2>
+                    <h5><%= listing.category %></h5>
+                    <h5><%= listing.address %></h5>
+                  </div>
+
+                  <div>
+                  </div>
+
+                </div>
+                <div class="ml-auto">
+                  <h5>$<%= listing.price %></h5>
+                  <%= link_to listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } do%>
+                  <i class="fas fa-trash-alt btn btn-transparent"></i>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </ul>
+
+        </div>
+
+      </div>

@@ -11,6 +11,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
 
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
@@ -28,3 +29,5 @@ initAutocomplete();
 initSelect2();
 
 bannerChanger();
+
+previewImageOnFileSelect();
