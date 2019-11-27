@@ -20,7 +20,8 @@
         autofocus: true,
         input_html: { autocomplete: "email" }%>
         <div class="col-4">
-          <%= f.input :photo %>
+          <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
+          <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
         </div>
       </div>
 
