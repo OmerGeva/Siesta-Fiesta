@@ -255,7 +255,7 @@ review = Review.create(
 
 review = Review.create(
   title: 'Pretty good!',
-  content: "I stopped by for a nap in the afternoon and was pleasantly surprised by the quality of the tent, especially for the price.",
+  content: "I stopped by for a nap in the afternoon and was pleasantly surprised by the quality of the couch, especially for the price.",
   rating: 4,
   listing_id: 6,
   user: user3
