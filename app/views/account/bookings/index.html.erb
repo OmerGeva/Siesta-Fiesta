@@ -1,6 +1,5 @@
 <div class="d-flex justify-content-around align-items-center">
   <h1 class="m-5">Welcome back <%= current_user.first_name %>!</h1>
-  <%= link_to "Make a new Listing!", new_listing_path, class: 'btn btn-primary rounded' %>
 </div>
 
 <div class="container justify-content-center">
@@ -97,7 +96,9 @@
           <div>
             <div class="text-center">
               <h3 class="mb-3">My Current Listings</h3>
-              <%= link_to "View Pending Bookings", pending_account_bookings_path, class: 'btn btn-primary rounded mb-3' %>
+              <%= link_to "View Pending Bookings", pending_account_bookings_path, class: 'btn btn-secondary rounded mb-3 mr-2' %>
+              <%= link_to "Make a new Listing!", new_listing_path, class: 'btn btn-secondary rounded mb-3' %>
+
             </div>
             <% if current_user.listings.empty? %>
             <div class="card-product mt-2 d-flex justify-content-between">
