@@ -15,3 +15,6 @@ function addReview(reviewHTML) {
   addReview('<%= j render "reviews/show", listing: @listing %>');
   refreshForm('<%= j render "reviews/form", listing: @listing, review: Review.new %>');
 <% end %>
+
+window.initStarRating();
+

@@ -20,8 +20,8 @@ class ReviewsController < ApplicationController
 
     if @review.save
       respond_to do |format|
-        format.html { redirect_to redirect_to listing_path(@listing) }
         format.js
+        format.html { redirect_to listing_path(@listing) }
       end
     else
       respond_to do |format|
