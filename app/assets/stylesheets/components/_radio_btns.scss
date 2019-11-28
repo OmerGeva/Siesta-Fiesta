@@ -1,0 +1,19 @@
+.choose-category {
+  display: flex;
+  .form-check-label {
+    margin-right: 16px;
+  }
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.category-icons {
+  cursor: hand;
+  cursor: pointer;
+  i:hover {
+    color: $sepia;
+
+  }
+}
