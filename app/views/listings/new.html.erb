@@ -6,7 +6,7 @@
       <%= f.input :title %>
       <%= f.input :category, collection: ['couch', 'yoga mat', 'tent'], :input_html => { :class => "select2" } %>
       <%= f.input :address %>
-      <%= f.input :price %>
+      <%= f.input :price, label: "Price (USD)" %>
       <%= f.input :description %>
     </div>
     <div class="col-4 mt-3">
