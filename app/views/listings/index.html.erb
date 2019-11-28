@@ -43,7 +43,7 @@
         <div class="card-product">
           <%= cl_image_tag listing.photo, crop: :fill, alt: listing.title %>
 
-          <div class="card-product-infos p-2">
+          <div class="card-product-infos d-flex flex-column">
             <div class='d-flex justify-content-between'>
               <h2><%= listing.title %></h2>
 
@@ -67,11 +67,29 @@
               </div>
               <% end %>
             </div>
-
-            <p><%= listing.category %></p>
-            <p><%= listing.address %></p>
-            <p><em>Extra option</em></p>
-            <p><strong><%= listing.price %>$</strong></p>
+            <div class='d-flex justify-content-between align-items-end'>
+              <div>
+              <p><%= listing.category %></p>
+              <p><%= listing.address %></p>
+              <div class="listing-addons d-flex">
+                <div>
+                  <img src="../../assets/images/meal.png" alt="meal">
+                </div>
+                <div>
+                  <img src="../../assets/images/pillow.png" alt="pillow">
+                </div>
+                <div>
+                  <img src="../../assets/images/spa.png" alt="massage">
+                </div>
+                <div>
+                  <img src="../../assets/images/dog.png" alt="dog">
+                </div>
+              </div>
+              </div>
+              <div>
+              <p class='price'><%= listing.price %>$</p>
+              </div>
+            </div>
           </div>
         </div>
         <% end %>
