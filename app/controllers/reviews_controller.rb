@@ -19,9 +19,15 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to listing_path(@listing)
+      respond_to do |format|
+        format.html { redirect_to redirect_to listing_path(@listing) }
+        format.js
+      end
     else
-      render 'listings/show'
+      respond_to do |format|
+        format.html { render 'listings/show' }
+        format.js
+      end
     end
   end
 
