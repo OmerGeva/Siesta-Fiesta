@@ -1,6 +1,98 @@
-.card-img-top {
-  height: 240px;
-  object-fit: cover;
+// --- HOME PAGE --- //
+
+.home-card {
+  color: rgba(255,255,255,0.85);
+  height: 420px;
+  width: 17rem;
+  margin: 0.5rem !important;
+  // background: rgba(255, 255, 255, 0.07);
+  background:
+      linear-gradient(to top, rgba(0,0,0,0), rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07));
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    &:hover {
+      color: $hover;
+      text-decoration: none;
+      }
+  }
+  .price {
+    font-family: $price-font;
+    font-size: 30px;
+    color: $sepia;
+  }
+}
+
+.home-card-img {
+  position: relative;
+  transition: display .6s ease;
+
+  img {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  &:hover {
+    .home-card-title {
+      display: none;
+    }
+    .img-gradient:after {
+      display: none;
+    }
+  }
+}
+
+.home-card-title {
+  transition: display .6s ease;
+  color: white;
+  font-family: $card-headers-font;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  opacity: 0.82;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-gradient{
+  position:relative;
+  display:inline-block;
+}
+
+.img-gradient:after {
+  content:'';
+  transition: .6s ease;
+  position:absolute;
+  left:0; top:0;
+  width:100%; height:100%;
+  background:
+      linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+  background-blend-mode: screen;
+  display:inline-block;
+  border-radius: 10px 10px 0 0;
+}
+
+.img-gradient img{
+  display:block;
+}
+
+.home-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 16px 16px;
 }
 
 .card-product {
@@ -35,12 +127,13 @@
   width: 100%;
 }
 
-.content {
+.card-product-content {
   padding: 24px 16px;
 }
 
 .listing-card {
   margin: 0 0 24px;
+  // position: relative;
 }
 
 .img-layout {

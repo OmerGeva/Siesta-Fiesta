@@ -1,13 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1540991825428-5b54b09f7338?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2994&q=80);">
+<div id='bannerImage' class="banner">
   <div class="container">
-    <h1 class="d-flex justify-content-around mb-3">Take a nap at</h1>
+    <h1 class="d-flex justify-content-around mb-3">Take a nap at...</h1>
     <h3 class="d-flex justify-content-around mb-5"><%= render "form", listing: @new_listing %></h3>
   </div>
 </div>
 
 
 <div class="container">
-  <h3 class='text-center'>Choose category:</h3>
+  <h3 class='headers text-center'>Choose category:</h3>
   <div class="categories">
     <%= link_to listings_path(@query, category: 'couch') do %>
     <img src="https://image.flaticon.com/icons/svg/673/673277.svg" alt="couch" id="couch-icon">
@@ -20,44 +20,55 @@
     <% end %>
   </div>
 
-  <h1 class="m-3 border-bottom">Featured naps nearby: </h1>
-  <div class="row">
+  <h1 class="m-3"></h1>
+  <div class="row w-100">
     <% @listings.each do |listing| %>
     <div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="card m-2 shadow-sm" style="height: 500px; width: 17rem;">
         <%= link_to listing_path(listing) do %>
-        <%= cl_image_tag listing.photo, class: 'card-img-top', scrop: :fill %>
-        <div class="card-body d-flex flex-column">
-          <h3 class="card-title pb-3 border-bottom">
-            <%= listing.title %></h3>
+      <div class="home-card">
+
+        <div class='home-card-img'>
+          <div class='img-gradient'>
+            <%= cl_image_tag listing.photo %>
+          </div>
+          <h3 class='home-card-title'>
+            <%= listing.title.upcase %>
+          </h3>
+        </div>
+
+        <div class="home-card-body">
+<!--           <h3 class="card-title pb-3 border-bottom">
+            <%= listing.title %></h3> -->
             <% end %>
             <div class="d-flex justify-content-between align-items-end mt-auto">
               <div>
 
                 <!-- RATING -->
                 <% if listing.reviews.empty? %>
-                <div class='stars'>
-                  <% 5.times do %>
-                  <i class="far fa-star"></i>
-                  <% end %>
-                </div>
+                  <div class='stars'>
+                    <% 5.times do %>
+                    <i class="far fa-star"></i>
+                    <% end %>
+                  </div>
                 <% else %>
-                <div class='stars'>
-                  <% ratings = listing.reviews.map(&:rating) %>
-                  <% avg_rating = (ratings.sum / ratings.length) %></p>
-                  <% avg_rating.times do %>
-                  <i class="fas fa-star"></i>
-                  <% end %>
-                  <% (5 - avg_rating).times do %>
-                  <i class="far fa-star"></i>
-                  <% end %>
-                </div>
+                  <div class='stars'>
+                    <% ratings = listing.reviews.map(&:rating) %>
+                    <% avg_rating = (ratings.sum / ratings.length) %></p>
+                    <% avg_rating.times do %>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                    <% (5 - avg_rating).times do %>
+                    <i class="far fa-star"></i>
+                    <% end %>
+                  </div>
                 <% end %>
+
+
 
                 <p class="card-text"><%= listing.category.capitalize %></p>
                 <p class="card-text"><%= listing.address %></p>
               </div>
-              <p class="card-text">$<%= listing.price %></p>
+              <p class="price">$<%= listing.price %></p>
             </div>
           </div>
         </div>
