@@ -19,7 +19,7 @@ class Account::BookingsController < ApplicationController
     current_user.update(account_params)
     skip_authorization
 
-    redirect_to pending_account_bookings_path
+    redirect_to account_bookings_path
   end
 
   def accept_booking
