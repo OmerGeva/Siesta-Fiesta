@@ -1,39 +1,22 @@
 <div class="index-container">
   <h1>Naps available</h1>
-  <div class="searchbar">
-    <form>
-      <div class="form-row">
-        <div class="col-4">
-          <input type="text" class="form-control" placeholder="Address">
-        </div>
-        <div class="col-3">
-          <input type="date" class="form-control" placeholder="From">
-        </div>
-        <div class="col-3">
-          <input type="date" class="form-control" placeholder="Till">
-        </div>
-        <div class="col-2">
-          <input type="submit" class="btn btn-outline-secondary rounded" value="Search">
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="filterbar">
-    <div class="btn-group">
-      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Price
-      </button>
-      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Category
-      </button>
-      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Location
-      </button>
-      <button class="btn btn-secondary btn-sm">Other</button>
+  <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+<div class="search-form-listings">
+    <%= f.input :address, placeholder: 'Address', label: false %>
+    <%= f.submit "Search Again", class: "btn btn-secondary" %>
+</div>
+<% end %>
 
+    <div class="d-flex">
+      <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+      <div class="search-form-listings-category">
+      <%= f.input :category, collection: Listing::CATEGORIES, :input_html => { :class => "select2" }, label: false%>
+
+      <%= f.submit "Search By Category", class: "btn btn-secondary" %>
+      </div>
+      <% end %>
 
     </div>
-  </div>
 
   <div class="row">
     <div class="col-8 results-wrapper">
