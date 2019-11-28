@@ -37,3 +37,66 @@ margin-top: 24px;
     }
   }
 }
+
+.search-form-listings {
+display: flex;
+margin-left: 10px;
+margin-top: 14px;
+  input {
+    height: 25px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+  input[type='text'] {
+    background: rgba(255,255,255,0.7);
+    width: 150px;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    border-radius: 25px 0 0 25px;
+  }
+  input[type='submit'] {
+    width: 120px;
+    position: relative;
+    background: linear-gradient(to top, $sepia, #8c7031);
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    border-radius: 0 25px 25px 0;
+    color: #fff;
+    &:hover {
+      background: linear-gradient(to bottom, $sepia, #8c7031);
+    }
+  }
+}
+
+.search-form-listings-category {
+display: flex;
+margin-left: 10px;
+margin-top: 14px;
+  input {
+    height: 25px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+  input[type='submit'] {
+    margin-left: 5px;
+    width: 170px;
+    position: relative;
+    background: linear-gradient(to top, $sepia, #8c7031);
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    border-radius: 0 25px 25px 0;
+    color: #fff;
+    &:hover {
+      background: linear-gradient(to bottom, $sepia, #8c7031);
+    }
+  }
+}
