@@ -1,6 +1,7 @@
 import "bootstrap";
 import "../plugins/flatpickr"
 import { getTotalPrice } from '../components/price';
+import { initStarRating } from '../plugins/init_star_rating';
 
 // import { iconChanger } from './homepage'
 // iconChanger();
@@ -15,12 +16,19 @@ import { previewImageOnFileSelect } from '../components/photo_preview';
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initSweetalert } from '../components/init_sweetalert';
+
+
+initMapbox();
+initAutocomplete();
+initStarRating();
+
 
 // import { bannerChanger } from '../components/banner_changer';
 // import { setBckImage } from '../components/banner_changer';
 // export { backgroundSequence } from '../components/banner_changer';
 
-import { initSweetalert } from '../components/init_sweetalert';
+
 
 if (document.URL.match(/listings\/\d+/)) {
   getTotalPrice();
