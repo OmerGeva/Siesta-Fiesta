@@ -69,3 +69,35 @@ initSweetalert('#new-booking-request-alert', {
     link.click();
   }
 });
+
+
+
+
+
+
+
+
+
+document.getElementById("couch").addEventListener("click", (e) => {
+  document.querySelector(".radios").querySelectorAll("input")[1].checked = true
+})
+
+document.getElementById("yoga-mat").addEventListener("click", (e) => {
+  document.querySelector(".radios").querySelectorAll("input")[2].checked = true
+})
+
+
+document.getElementById("tent").addEventListener("click", (e) => {
+  document.querySelector(".radios").querySelectorAll("input")[3].checked = true
+})
+
+
+
+
+
+
+
+
+
+
+

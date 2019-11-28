@@ -4,7 +4,19 @@
     <div class="col-8">
       <%= simple_form_for [@listing] do |f| %>
       <%= f.input :title %>
-      <%= f.input :category, collection: ['couch', 'yoga mat', 'tent'], :input_html => { :class => "select2" } %>
+      <p>Category:</p>
+      <div class='choose-category d-flex'>
+        <div class='category-icons'>
+        <i class="fas fa-couch" id="couch" style="font-size:25px;"></i>
+        <i class="fas fa-campground" id="tent" style="font-size:25px;"></i>
+        <img src="https://image.flaticon.com/icons/svg/1210/1210282.svg" id="yoga-mat" style="width: 35px; filter: invert(1); opacity: 0.8;" alt="yoga mat">
+        </div>
+        <div class="radios">
+      <%= f.input :category, label: '', collection: ['couch', 'yoga mat', 'tent'], as: :radio_buttons, input_html: {class: "invisible"} %>
+     </div>
+      <%#= f.input :category, label: '', collection: ['yoga mat'], as: :radio_buttons %>
+      <%#= f.input :category, label: '', collection: ['tent'], as: :radio_buttons %>
+      </div>
       <%= f.input :address %>
       <%= f.input :price %>
       <%= f.input :description %>

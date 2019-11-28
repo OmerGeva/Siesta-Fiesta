@@ -105,7 +105,8 @@
 
 .card-product h2 {
   color: $sepia;
-  font-size: 16px;
+  font-size: 20px;
+  letter-spacing: 0.8px;
   font-weight: bold;
   margin: 0;
 
@@ -137,7 +138,8 @@
 .listing-addons {
   display: flex;
   align-items: left;
-  padding: 12px 12px 0;
+  padding: 12px 8px 0;
+  align-items: center;
   img {
     width: 30px;
     padding-right: 6px;
