@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon fixed-top
+  <%= params[:action] == 'home' ? '' : 'nav-color' %>">
   <%= link_to "/", class: "navbar-brand" do %>
   <h3 class="mb-0 logo", style="font-size: 24px">Siesta <img src="https://image.flaticon.com/icons/png/512/235/235814.png" alt="logo"></i> <font color="#9a1619">Fiesta</font></h3>
   <% end %>

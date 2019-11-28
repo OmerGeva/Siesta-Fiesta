@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-around align-items-center">
+<div class="d-flex justify-content-around align-items-center buffer">
   <h1 class="m-5">Welcome back <%= current_user.first_name %>!</h1>
 </div>
 
@@ -62,9 +62,9 @@
           <% if @previous_bookings.empty? %>
           <div class="card-product mt-2 d-flex justify-content-between">
             <div class="card-product-infos align-items-end">
-              <h3 class="text-center mb-2">You have previous bookings!</h3>
+              <h3 class="text-center mb-2">You have no previous bookings!</h3>
              <div class="d-flex justify-content-center text-align-center">
-                  <img src="http://atlas-content-cdn.pixelsquid.com/stock-images/yoga-mat-rA7KXZ2-600.jpg" alt="couch" id="couch-icon"  style="width: 80px">
+                  <img src="http://pluspng.com/img-png/yoga-mat-png--2300.png" alt="couch" id="couch-icon"  style="width: 80px">
                 </div>
             </div>
             <% end %>
