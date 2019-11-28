@@ -135,6 +135,7 @@
 
 <!-- Create Review Form -->
 <div class="container">
+  <% @review = Review.new %>
   <%= simple_form_for [@listing, @review] do |f| %>
   <%= f.input :title %>
   <%= f.input :rating %>
