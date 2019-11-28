@@ -1,0 +1,11 @@
+.btn-custom {
+  border-radius: 25px;
+  background: linear-gradient(to top, #b2913c, #8c7031);
+  outline: none;
+  border: none;
+  width: 200px;
+  &:hover {
+    transition: 2s;
+    background: linear-gradient(to bottom, $sepia, #8c7031);
+  }
+}

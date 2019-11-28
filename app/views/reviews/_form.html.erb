@@ -1,5 +1,5 @@
 <%= simple_form_for([listing, review], remote: true) do |f| %>
   <%= f.input :content %>
   <%= f.input :rating, collection: (1..5).to_a, id:"review_rating", label: "How was your nap?" %>
-  <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
+  <%= f.submit "Leave Review!", class: 'btn btn-primary btn-custom' %>
 <% end %>

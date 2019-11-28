@@ -1,19 +1,12 @@
 <div class="show-container">
   <div class="row">
-    <div class="col-9 listing-wrapper">
-      <div class="row listing-card">
+    <div class="col-9 listing-wrapper mt-5">
+      <div class="row listing-card mb-5">
         <div class="col-6 img-layout">
           <div class="row mb-2">
             <%= cl_image_tag @listing.photo, crop: :fill, class: 'big-img' %>
           </div>
-          <div class="row d-flex flex-nowrap">
-            <div>
-              <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pr-1' %>
-            </div>
-            <div>
-              <%= cl_image_tag @listing.photo, crop: :fill, class: 'small-img pl-1' %>
-            </div>
-          </div>
+
         </div>
         <div class='col-6 content'>
           <div class="user-corner">
@@ -115,9 +108,9 @@
     <div class='d-flex justify-content-between px-4'>
       <p>Total price:</p> <span id='totalPrice'>$<%= @listing.price %></span>
     </div>
-    <%= f.submit "Request Nap!", class: "btn btn-primary btn-block", id: "new-booking-button", style: "position: absolute; top: -1000px;" %>
+    <%= f.submit "Request Nap!", class: "btn btn-primary btn-block btn-custom", id: "new-booking-button", style: "position: absolute; top: -1000px;" %>
     <% end %>
-    <button id="new-booking-request-alert" class="btn btn-primary btn-block">Request Booking!</button>
+    <button id="new-booking-request-alert" class="btn btn-primary btn-block btn-custom">Request Booking!</button>
   </div>
 </div>
 
