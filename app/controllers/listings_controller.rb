@@ -26,6 +26,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     @markers = [{
       lat: @listing.latitude,
       lng: @listing.longitude,
@@ -33,7 +34,6 @@ class ListingsController < ApplicationController
       image_url: helpers.asset_url('dreaming.png')
     }]
 
-    @review = Review.new
     authorize @listing
   end
 
@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
     authorize @listing
   end
 
-  def creates
+  def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
     authorize @listing
