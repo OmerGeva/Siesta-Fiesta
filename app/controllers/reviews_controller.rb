@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
 
   def create
     @booking = Booking.new
-
     @review = Review.new(review_params)
     @review.listing = @listing
     @review.user = current_user
