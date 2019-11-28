@@ -86,39 +86,14 @@
     <!-- Map End -->
 
     <!-- Reviews -->
-    <div class="reviews">
-      <h2 class='text-center'>Reviews</h2>
-      <% if @listing.reviews.empty? %>
-      <center><em>No reviews yet</em></center>
-      <% else %>
-      <% @listing.reviews.each do |review| %>
-      <div class="review-avatar">
-        <%= cl_image_tag review.user.photo, class: "avatar" %>
-      </div>
-      <div class='review'>
-        <strong><%= review.title %></strong>
-        <div class='stars'>
-          <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-          <% end %>
-        </div>
-        <p><%= review.content %></p>
-      </div>
-      <% end %>
-      <% end %>
+    <div class="reviews" id="reviews">
+      <%= render 'reviews/show', listing: @listing %>
     </div>
+
     <!-- Reviews End -->
     <!-- Create Review Form -->
-    <div class="container">
-      <%= simple_form_for [@listing, @review] do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "How was your nap?" %>
-      <%= f.submit "Leave Review!", class: 'btn btn-primary btn-block' %>
-
-      <% end %>
+    <div class="container" id="new_review">
+      <%= render 'reviews/form', listing: @listing, review: @review %>
     </div>
 
     <!-- End -->
@@ -126,7 +101,6 @@
 </div>
 <!-- Booking Form -->
 <div class="col-3 booking-form-wrapper">
-  <h3>sdfas</h3>
   <div class="booking-form">
     <h3>$
       <span id='hourPrice'><%= @listing.price %></span>
