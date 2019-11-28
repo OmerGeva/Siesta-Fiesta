@@ -1,17 +1,30 @@
 // Specific CSS for your home-page
+.content {
+  color: rgba(255,255,255,0.7);
+  padding-bottom: 32px;
+}
+
+.headers {
+  color: $sepia;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
 .categories {
+  height: 110px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  filter: brightness(90%);
   a {
     img {
     height: 80px;
     margin: 0 24px;
-    filter: brightness(80%);
 
     }
     &:hover {
       img {
-        filter: brightness(100%);
+        transform: scale(1.2);
       }
     }
   }

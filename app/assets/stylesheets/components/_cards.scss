@@ -1,9 +1,13 @@
 // --- HOME PAGE --- //
 
 .home-card {
-  height: 400px;
+  color: rgba(255,255,255,0.85);
+  height: 420px;
   width: 17rem;
   margin: 0.5rem !important;
+  // background: rgba(255, 255, 255, 0.07);
+  background:
+      linear-gradient(to top, rgba(0,0,0,0), rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07));
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -11,11 +15,10 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 10px;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.8);
@@ -24,17 +27,22 @@
       text-decoration: none;
       }
   }
+  .price {
+    font-family: $price-font;
+    font-size: 30px;
+    color: $sepia;
+  }
 }
 
 .home-card-img {
   position: relative;
-  transition: .6s ease;
+  transition: display .6s ease;
+
   img {
     height: 240px;
     width: 100%;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
-    transition: .6s ease;
   }
   &:hover {
     .home-card-title {
@@ -47,7 +55,7 @@
 }
 
 .home-card-title {
-  transition: .6s ease;
+  transition: display .6s ease;
   color: white;
   font-family: $card-headers-font;
   font-weight: bold;
@@ -84,7 +92,7 @@
 .home-card-body {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 0 16px 16px 16px;
 }
 
 .card-product {
@@ -119,12 +127,13 @@
   width: 100%;
 }
 
-.content {
+.card-product-content {
   padding: 24px 16px;
 }
 
 .listing-card {
   margin: 0 0 24px;
+  // position: relative;
 }
 
 .img-layout {

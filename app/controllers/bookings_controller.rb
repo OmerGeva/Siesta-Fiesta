@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
 
   def create
-    # current_date = Date.new(params[:booking]["date(1i)"].to_i, params[:booking]["date(2i)"].to_i, params[:booking]["date(3i)"].to_i)
+
     @listing = Listing.find(params[:listing_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      redirect_to account_bookings_path, notice: 'Booking was successfully Requested!'
+      redirect_to account_bookings_path
     else
       render new_listing_booking_path(@listing)
     end

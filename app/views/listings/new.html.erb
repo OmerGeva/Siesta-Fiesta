@@ -9,13 +9,15 @@
       <%= f.input :price %>
       <%= f.input :description %>
     </div>
-    <div class="col-4">
-      <%= f.input :photo %>
+    <div class="col-4 mt-3">
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
   </div>
   <div class="row">
-    <%= f.submit "New Listing", class: "btn btn-primary" %>
+    <%= f.submit "New Listing", class: "btn btn-primary ml-3", id:"new-listing-button", style: "position: absolute; top: -1000px;" %>
     <% end %>
+  <button id="new-listing-alert" class="btn btn-primary btn-block", id="new-listing-alert">Request Booking!</button>
   </div>
 </div>

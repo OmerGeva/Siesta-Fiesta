@@ -3,3 +3,37 @@
   justify-content: flex-start;
   margin: 16px 0;
 }
+
+.search-form {
+display: flex;
+margin-top: 24px;
+  input {
+    height: 50px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+  input[type='text'] {
+    background: rgba(255,255,255,0.7);
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    border-radius: 25px 0 0 25px;
+  }
+  input[type='submit'] {
+    position: relative;
+    background: linear-gradient(to top, $sepia, #8c7031);
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    border-radius: 0 25px 25px 0;
+    color: #fff;
+    &:hover {
+      background: linear-gradient(to bottom, $sepia, #8c7031);
+      font-size: 18px;
+    }
+  }
+}
