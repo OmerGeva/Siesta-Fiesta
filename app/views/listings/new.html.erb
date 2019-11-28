@@ -1,5 +1,5 @@
 <div class="container mt-5 buffer">
-  <h1>Create a New Listing</h1>
+  <h1 class='header'>Create a New Listing</h1>
   <div class="row">
     <div class="col-8">
       <%= simple_form_for [@listing] do |f| %>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-4 mt-3">
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'upload-photo btn btn-primary btn-custom'}, label: '📷 Upload a photo' %>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
   </div>

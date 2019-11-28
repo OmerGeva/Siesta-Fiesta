@@ -3,16 +3,16 @@
   <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
 <div class="search-form-listings">
     <%= f.input :address, placeholder: 'Address', label: false %>
-    <%= f.submit "Search Again", class: "btn btn-secondary" %>
+    <%= f.submit "Search", class: "btn btn-secondary" %>
 </div>
 <% end %>
 
     <div class="d-flex">
-      <%= simple_form_for :search, url: listings_path, method: "GET" do |f| %>
+      <% simple_form_for :search, url: listings_path, method: "GET" do |f| %>
       <div class="search-form-listings-category">
-      <%= f.input :category, collection: Listing::CATEGORIES, :input_html => { :class => "select2" }, label: false%>
+      <% f.input :category, collection: Listing::CATEGORIES, :input_html => { :class => "select2" }, label: false%>
 
-      <%= f.submit "Search By Category", class: "btn btn-secondary" %>
+      <% f.submit "Search By Category", class: "btn btn-secondary" %>
       </div>
       <% end %>
 

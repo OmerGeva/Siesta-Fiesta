@@ -98,5 +98,16 @@ color:red
 }
 
 .upload-photo {
+  color: white;
   margin-top: 398px;
+}
+
+.form-control {
+  background: rgba(255,255,255,0.6);
+}
+
+.header {
+  color: $sepia;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
