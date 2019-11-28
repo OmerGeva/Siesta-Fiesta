@@ -8,5 +8,6 @@ const initStarRating = () => {
   });
 };
 
+window.initStarRating = initStarRating
 export { initStarRating };
 
