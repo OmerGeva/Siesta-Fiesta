@@ -9,8 +9,8 @@ const addMarkers = (map, markers) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '28px';
-    element.style.height = '28px';
+    element.style.width = '30px';
+    element.style.height = '30px';
 
     // create popup element
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
@@ -34,7 +34,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb'
+      style: 'mapbox://styles/alisasilina/ck3ijse7714f91co3q9z0tlv9'
     });
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
